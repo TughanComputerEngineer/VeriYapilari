@@ -1,4 +1,6 @@
 import pygame
+import LinkedList
+import HeapTree
 
 pygame.init()
 
@@ -7,108 +9,64 @@ FONT = pygame.font.Font("MinimalPixelFont.ttf", 64)
 screen = pygame.display.set_mode((600, 600))
 pygame.display.set_caption("League")
 
-class HeapTree():
-    def __init__(self):
-        self.data = []
-
-    def swap(self, idx1, idx2):
-        temp = self.data[idx2]
-        self.data[idx2] = self.data[idx1]
-        self.data[idx1] = temp
-
-    def AddTeam(self, val):
-        self.data.append(val)
-        self.HeapifyUp(len(self.data) - 1)
-
-    def DelTeam(self, i = 0):
-        if len(self.data) <= 0:
-            return
-
-        self.data[i] = self.data[-1]
-        self.data.pop()
-
-        self.HeapifyDown(i)
-
-    def getData(self):
-        for i in range(len(self.data)):
-            print(self.data[i].name + "-->", self.data[i].score)
-
-
-    def getLeftChild(self, i):
-        return 2*i + 1
-    def getRightChild(self, i):
-        return 2*i + 2
-    def getParent(self, i):
-        return (i-1) // 2
-
-    def haveLeftChild(self, i):
-        return self.getLeftChild(i) < len(self.data)
-    def haveRigthChild(self, i):
-        return self.getRightChild(i) < len(self.data)
-
-    def HeapifyUp(self, i):
-        if i <= 0:
-            return
-
-        elif self.data[i].score > self.data[self.getParent(i)].score:
-            self.swap(i, self.getParent(i))
-            return self.HeapifyUp(self.getParent(i))
-
-    def HeapifyDown(self, i):
-        if self.haveLeftChild(i):
-            greaterChild = self.getLeftChild(i)
-            if self.haveRigthChild(i) and (self.data[self.getRightChild(i)].score > self.data[self.getLeftChild(i)].score):
-                greaterChild = self.getRightChild(i)
-            if self.data[i].score >= self.data[greaterChild].score:
-                return
-            else:
-                self.swap(i, greaterChild)
-                return self.HeapifyDown(greaterChild)
+BG_COLOR = pygame.Color(44, 62, 80)
 
 #TODO butonu optimize et
 class Button():
     def __init__(self, text, x, y, width, height, color):
         self.screen = pygame.display.get_surface()
+        self.on_clicked = False
+        self.on_cursor = False
 
-        self.rect = pygame.Rect(x, y, width, height)
         self.color = color
         self.copy = text
 
-        self.clicked = False
-
         self.text = FONT.render(self.copy, True, "black")
         self.text_rect = self.text.get_rect()
-
         self.text_rect.center = (x + width/2, y + height/3)
 
     def interaction(self):
         mouse_pos = pygame.mouse.get_pos()
         if self.text_rect.collidepoint(mouse_pos) and pygame.mouse.get_pressed()[0]:
-            self.clicked = True
+            self.on_clicked = True
 
     def draw(self):
-        pygame.draw.rect(self.screen, self.color, self.rect)
-        self.screen.blit(self.text, self.text_rect)
+        mouse_pos = pygame.mouse.get_pos()
+        if self.text_rect.collidepoint(mouse_pos):
+            self.text = FONT.render(self.copy, True, ("yellow"))
+            self.screen.blit(self.text, self.text_rect)
+        else:
+            self.text = FONT.render(self.copy, True, ("gray"))
+            self.screen.blit(self.text, self.text_rect)
 
 class Team():
     def __init__(self, name, win, lose, draw):
         self.name = name
+
         self.win = win
         self.lose = lose
         self.draw = draw
 
-        self.queue = len(teams) # değiştirilecek
-        self.score = 0
+        self.past_races = LinkedList.linkedList()
 
+        self.queue = len(teams)
+        self.score = 0
 
     def calculate_score(self):
         self.score += self.win * 3 + self.draw
-
+def create_team():
+    name = get_name()
+    teams.append(Team(name, 0, 0, 0))
+def delete_team():
+    name = get_name()
+    for team in teams:
+        if(team.name == name):
+            teams.remove(team)
 def get_name(text1 = ""):
     name = ""
     running = True
     while running:
-        screen.fill("white")
+        screen.fill(BG_COLOR)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -136,17 +94,6 @@ def get_name(text1 = ""):
 
         pygame.display.update()
     return name.strip()
-
-def create_team():
-    name = get_name()
-    teams.append(Team(name, 0, 0, 0))
-
-def delete_team():
-    name = get_name()
-    for team in teams:
-        if(team.name == name):
-            teams.remove(team)
-
 def start_league():
     team1 = get_name("team 1 name")
     team2 = get_name("team 2 name")
@@ -166,7 +113,7 @@ def start_league():
     else:
         running = True
         while running:
-            screen.fill("white")
+            screen.fill(BG_COLOR)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
@@ -183,15 +130,21 @@ def start_league():
                         for team in teams:
                             if team.name == team1:
                                 team.score+=1
+                                team.past_races.insertAtEnd(team2, "WON")
                     elif button_name == "team2":
                         for team in teams:
                             if team.name == team2:
                                 team.score += 1
+                                team.past_races.insertAtEnd(team1, "WON")
                     elif button_name == "draw":
                         for team in teams:
                             if team.name == team1 or team.name == team2:
                                 team.score += 1
-                    button.clicked = False
+                                if team.name == team1:
+                                    team.past_races.insertAtEnd(team2, "DRAW")
+                                else:
+                                    team.past_races.insertAtEnd(team1, "DRAW")
+                    button.on_clicked = False
                     running = False
                     break
             pygame.display.update()
@@ -201,13 +154,11 @@ buttons = {"create team": Button("create team", 400, 100, 100, 50, "white"),
             "delete team": Button("delete team", 400, 200, 100, 50, "white"),
             "start league": Button("start league", 400, 300, 100, 50, "white")}
 
-# TODO teams i linked list olarak değiştir!
 teams = []
-
 def main_menu():
     running = True
     while running:
-        screen.fill("white")
+        screen.fill(BG_COLOR)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -227,21 +178,23 @@ def main_menu():
             button.draw()
             button.interaction()
 
-            if button.clicked:
+            if button.on_clicked:
                 if button_name == "create team":
                     create_team()
                 elif button_name == "delete team":
                     delete_team()
                 elif button_name == "start league":
                     start_league()
-                button.clicked = False
+                button.on_clicked = False
 
         pygame.display.update()
     pygame.quit()
-main_menu()
 
-league = HeapTree()
+main_menu()
+league = HeapTree.heapTree()
 for team in teams:
     league.AddTeam(team)
 
-league.getData()
+for team in league.data:
+    print(team.name)
+    team.past_races.printList()
