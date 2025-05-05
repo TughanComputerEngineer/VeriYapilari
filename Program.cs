@@ -30,27 +30,42 @@ namespace webapplication
                 // Veritabanına veri ekliyoruz
                 if (!db.Teams.Any())
                 {
-                    Console.WriteLine("asdasdasdasd");
-                    db.Teams.Add(new Team()
+                    var team = new Team()
                     {
                         Name = "team1",
                         CurrentLeague = "league1",
                         CurrentScore = 20,
                         Last5Match = new List<string> { "W", "", "L", "D", "W" }
-                    });
-                    db.SaveChanges();
+                    };
+                    // Yeni bir takım oluşturma
+                    db.Teams.Add(team);
+                    db.SaveChanges();  // Önce takım kaydedilir
+
+                    // geçmiş sezonlar
+                    var previousSeasons = new List<PreviousSeasonsClass>()
+                    {
+                        new PreviousSeasonsClass
+                        {
+                            Score = 30,
+                            Year = 2022,
+                            Ranking = 1,
+                            TeamId = team.Id,  // Takım ID'sini ilişkilendirilir
+                            Team = team
+                        },
+                        new PreviousSeasonsClass
+                        {
+                            Score = 25,
+                            Year = 2021,
+                            Ranking = 2,
+                            TeamId = team.Id,  // Takım ID'sini ilişkilendirilir
+                            Team = team
+                        }
+                    };
+                    db.PreviousSeasons.AddRange(previousSeasons);
+                    db.SaveChanges();  // Geçmiş sezonlar kaydedildi
                 }
 
-                /*
-                var heapTree = new HeapTree();
-
-                foreach (var team in db.Teams)
-                {
-                    heapTree.Insert(team);
-                }
-
-                var max = heapTree.GetMax();
-                Console.WriteLine($"Max: {max}");*/
+               
             }
 
             // HTTP isteği işleme
@@ -79,3 +94,13 @@ namespace webapplication
         }
     }
 }
+
+/*
+var heapTree = new HeapTree();
+foreach (var team in db.Teams)
+{
+    heapTree.Insert(team);
+}
+var max = heapTree.GetMax();
+Console.WriteLine($"Max: {max}");
+*/
