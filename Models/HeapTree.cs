@@ -63,8 +63,8 @@ public class HeapTree
         }
     }
 
-    public HeapNode? GetMax()
+    public Team? getMax()
     {
-        return Root;
+        return Root?.team;
     }
 }

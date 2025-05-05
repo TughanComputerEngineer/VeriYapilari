@@ -156,3 +156,4 @@
 /Users/polatceylan/Desktop/Tourney/webapplication/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /Users/polatceylan/Desktop/Tourney/webapplication/obj/Debug/net8.0/webapplication.csproj.AssemblyReference.cache
 /Users/polatceylan/Desktop/Tourney/webapplication/obj/Debug/net8.0/webappli.BE4F1976.Up2Date
+/Users/polatceylan/Desktop/Tourney/webapplication/obj/Debug/net8.0/webapplication.sourcelink.json
