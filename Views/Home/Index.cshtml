@@ -1,3 +1,5 @@
+@model List<webapplication.Models.Team>
+
 @{
     ViewData["Title"] = "Futbol Turnuvası - Ana Sayfa";
 }
@@ -53,6 +55,16 @@
             <span></span>
           </div>
           <div id="takim-listesi"></div>
+
+          <!-- Takımları Döngü ile Listele -->
+          @foreach (var team in Model)
+          {
+              <div class="team-item">
+                  <span>@team.Name</span>
+                  <span>@team.CurrentScore</span>
+              </div>
+          }
+
         </div>
       </div>
 
