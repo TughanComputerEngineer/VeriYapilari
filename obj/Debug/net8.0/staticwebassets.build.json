@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1C3P8DWKMGg9oUll/1VKZsjiBx4+xR1pBCXwM8U/84I=",
+  "Hash": "FASMSbpfUP9ndWBl0cWLIcvAJCCX/wWcaX1ZVmrWk4I=",
   "Source": "webapplication",
   "BasePath": "_content/webapplication",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/admin.js"
+    },
+    {
+      "Identity": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/js/home.js",
+      "SourceId": "webapplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/",
+      "BasePath": "_content/webapplication",
+      "RelativePath": "js/home.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/home.js"
     },
     {
       "Identity": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/js/site.js",

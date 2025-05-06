@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets/js/admin.js"
     },
     {
+      "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/js/home.js",
+      "PackagePath": "staticwebassets/js/home.js"
+    },
+    {
       "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

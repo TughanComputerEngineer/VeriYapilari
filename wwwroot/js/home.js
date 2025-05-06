@@ -1,0 +1,1 @@
+console.log("home panel için javascript kodları burada!");

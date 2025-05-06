@@ -87,7 +87,7 @@ namespace webapplication
             app.MapControllerRoute( // Controller routing
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}"); 
-
+            
 
             // Uygulamayı başlatıyoruz
             app.Run();

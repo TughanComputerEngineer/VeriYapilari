@@ -1,0 +1,21 @@
+@model List<webapplication.Models.Team>
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<h1>Ana Sayfa</h1>
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var team in Model)
+        {
+            <li>@team.Name @team.CurrentScore</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Henüz takım verisi bulunamadı.</p>
+}
