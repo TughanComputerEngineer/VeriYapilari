@@ -32,7 +32,7 @@ namespace webapplication
                 {
                     var team = new Team()
                     {
-                        Name = "team1",
+                        Name = "denemeadınayaplmışuzunisimliherhangibirtakımdeğeri",
                         CurrentLeague = "league1",
                         CurrentScore = 20,
                         Last5Match = new List<string> { "W", "", "L", "D", "W" }

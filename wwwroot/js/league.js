@@ -28,37 +28,56 @@ function createInitialBracket(teams) {
     return currentLevel[0]; // root node
 }
 
-function renderBracket(node) {
+function truncateName(name, max = 12) {
+    return name.length > max ? name.slice(0, max) + "…" : name;
+}
+
+function renderFullBracket(root) {
+    const bracketContainer = document.getElementById("bracket");
+    bracketContainer.innerHTML = "";
+
+    let queue = [root];
     const levels = [];
 
-    function traverse(node, depth = 0) {
-        if (!node) return;
+    while (queue.length > 0) {
+        const levelSize = queue.length;
+        const currentLevel = [];
+        let allNull = true;
 
-        if (!levels[depth]) levels[depth] = [];
-        levels[depth].push(node.team ? node.team.name : "[     ]");
+        for (let i = 0; i < levelSize; i++) {
+            const node = queue.shift();
+            if (node) {
+                currentLevel.push(node.team ? node.team.name : "[     ]");
+                queue.push(node.left);
+                queue.push(node.right);
+                if (node.left || node.right) allNull = false;
+            } else {
+                currentLevel.push("[     ]");
+                queue.push(null);
+                queue.push(null);
+            }
+        }
 
-        traverse(node.left, depth + 1);
-        traverse(node.right, depth + 1);
+        levels.push(currentLevel);
+
+        // Eğer alt seviyelerde hiç canlı node kalmadıysa dur
+        if (allNull) break;
     }
 
-    traverse(node);
-
-    const bracketContainer = document.getElementById("bracket");
-    bracketContainer.innerHTML = ""; // Öncekini temizle
-
-    levels.forEach(levelTeams => {
+    for (let i = 0; i < levels.length; i++) {
         const levelDiv = document.createElement("div");
         levelDiv.classList.add("bracket-row");
 
-        levelTeams.forEach(name => {
+        levels[i].forEach(name => {
             const teamDiv = document.createElement("div");
             teamDiv.classList.add("team-box");
-            teamDiv.textContent = name;
+            teamDiv.textContent = truncateName(name);
             levelDiv.appendChild(teamDiv);
         });
 
         bracketContainer.appendChild(levelDiv);
-    });
+    }
+        
 }
 
 
@@ -68,6 +87,6 @@ fetch('/api/tournament/teams')
     .then(teams => {
         const root = createInitialBracket(teams);
         
-        renderBracket(root);
+        renderFullBracket(root);
     })
     .catch(error => console.error('Hata:', error));
