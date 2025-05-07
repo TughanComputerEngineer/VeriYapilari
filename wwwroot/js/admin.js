@@ -1,1 +1,1 @@
-console.log("admin panel için javascript kodları burada!");
+console.log("burası admin paneli");

@@ -1,0 +1,25 @@
+/* Admin sayfası için stil */
+#bracket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    margin-top: 20px;
+  }
+  
+  .bracket-row {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    gap: 20px;
+  }
+  
+  .team-box {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    min-width: 80px;
+    text-align: center;
+  }
+  

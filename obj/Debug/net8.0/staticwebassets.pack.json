@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/css/home.css"
     },
     {
+      "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/css/league.css",
+      "PackagePath": "staticwebassets/css/league.css"
+    },
+    {
       "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
@@ -63,6 +67,10 @@
     {
       "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/js/home.js",
       "PackagePath": "staticwebassets/js/home.js"
+    },
+    {
+      "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/js/league.js",
+      "PackagePath": "staticwebassets/js/league.js"
     },
     {
       "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/js/site.js",
