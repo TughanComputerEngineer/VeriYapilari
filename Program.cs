@@ -84,6 +84,8 @@ namespace webapplication
 
             app.MapRazorPages();
             app.MapRazorPages(); // Razor Pages yönlendirmesi
+
+            app.MapGet("/", () => Results.Redirect("/home"));
             app.MapControllerRoute( // Controller routing
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}"); 
