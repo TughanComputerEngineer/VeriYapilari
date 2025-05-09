@@ -18,6 +18,9 @@ namespace webapplication
             builder.Services.AddControllersWithViews(); // Controller ve View'leri ekliyoruz
             builder.Services.AddRazorPages();
 
+
+            builder.Services.AddSession();
+
             var app = builder.Build();
 
             // Veritabanı işlemlerini uygulama başlatılmadan önce yapıyoruz
@@ -26,6 +29,20 @@ namespace webapplication
                 var db = scope.ServiceProvider.GetRequiredService<DataContext>();
 
                 db.Database.Migrate();  // migrations'ı otomatik olarak çalıştırıyoruz
+
+                // Eğer kullanıcı yoksa örnek kullanıcı ekleniyor
+                if (false)
+                {
+                    var user = new User
+                    {
+                        Username = "denemekullanici2",
+                        Password = "sifre123",  // Gerçek uygulamada hash kullan
+                        Favourites = new List<int> { 1, 2, 3, 10 } // Örnek takım ID'leri
+                    };
+
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                }
 
                 // Veritabanına veri ekliyoruz
                 if (!db.Teams.Any())
@@ -68,6 +85,10 @@ namespace webapplication
                
             }
 
+            // Otomatik giriş yapma işlemi (denemekullanici ile)
+            //var session = app.Services.GetRequiredService<ISession>();
+            //session.SetString("username", "denemekullanici");
+
             // HTTP isteği işleme
             if (!app.Environment.IsDevelopment())
             {
@@ -80,9 +101,9 @@ namespace webapplication
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseSession();
 
-            app.MapRazorPages();
+            app.UseAuthorization();
             app.MapRazorPages(); // Razor Pages yönlendirmesi
 
             app.MapGet("/", () => Results.Redirect("/home"));
