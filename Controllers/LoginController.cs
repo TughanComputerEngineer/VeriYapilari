@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace webapplication.Controllers
 {
-    public class AdminController : Controller
+    public class LoginController : Controller
     {
         public IActionResult Index()
         {
-            return View(); // Admin sayfası için view'ı döndürüyoruz
+            return View(); // Views/Login/Index.cshtml'i döndürür
         }
     }
 }

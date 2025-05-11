@@ -35,9 +35,10 @@ namespace webapplication
                 {
                     var user = new User
                     {
-                        Username = "denemekullanici2",
-                        Password = "sifre123",  // Gerçek uygulamada hash kullan
-                        Favourites = new List<int> { 1, 2, 3, 10 } // Örnek takım ID'leri
+                        Username = "admin4",
+                        Password = "admin123",  // hashlenebilir
+                        Role = UserRole.Admin,
+                        Favourites = new List<int> {}
                     };
 
                     db.Users.Add(user);
@@ -50,36 +51,12 @@ namespace webapplication
                     var team = new Team()
                     {
                         Name = "denemeadınayaplmışuzunisimliherhangibirtakımdeğeri",
-                        CurrentLeague = "league1",
                         CurrentScore = 20,
                         Last5Match = new List<string> { "W", "", "L", "D", "W" }
                     };
                     // Yeni bir takım oluşturma
                     db.Teams.Add(team);
                     db.SaveChanges();  // Önce takım kaydedilir
-
-                    // geçmiş sezonlar
-                    var previousSeasons = new List<PreviousSeasonsClass>()
-                    {
-                        new PreviousSeasonsClass
-                        {
-                            Score = 30,
-                            Year = 2022,
-                            Ranking = 1,
-                            TeamId = team.Id,  // Takım ID'sini ilişkilendirilir
-                            Team = team
-                        },
-                        new PreviousSeasonsClass
-                        {
-                            Score = 25,
-                            Year = 2021,
-                            Ranking = 2,
-                            TeamId = team.Id,  // Takım ID'sini ilişkilendirilir
-                            Team = team
-                        }
-                    };
-                    db.PreviousSeasons.AddRange(previousSeasons);
-                    db.SaveChanges();  // Geçmiş sezonlar kaydedildi
                 }
 
                
@@ -117,13 +94,3 @@ namespace webapplication
         }
     }
 }
-
-/*
-var heapTree = new HeapTree();
-foreach (var team in db.Teams)
-{
-    heapTree.Insert(team);
-}
-var max = heapTree.GetMax();
-Console.WriteLine($"Max: {max}");
-*/

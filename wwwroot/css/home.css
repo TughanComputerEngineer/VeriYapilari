@@ -194,3 +194,17 @@ body {
     font-weight: bold;
     margin-right: 3px;
 }
+.favorite-team {
+  background-color: #1a1a1a;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.username-label {
+  font-weight: 500;
+  margin-right: 10px;
+}

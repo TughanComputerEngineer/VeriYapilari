@@ -16,12 +16,13 @@ namespace webapplication.Controllers
 
         public IActionResult Index()
         {
-            HttpContext.Session.SetString("username", "denemekullanici2");
+
+            // Eğer session'da 'username' yoksa, ilk defa giriş yapılıyordur
+            var username = HttpContext.Session.GetString("username");
 
             var teams = _context.Teams.ToList(); // Tüm takımlar
 
             // Giriş yapmış kullanıcı varsa onu bul
-            var username = HttpContext.Session.GetString("username");
 
             List<Team> favoriteTeams = new();
 

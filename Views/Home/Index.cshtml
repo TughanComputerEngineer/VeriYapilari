@@ -1,6 +1,5 @@
-@model List<webapplication.Models.Team>
-
 @{
+    var kullaniciAdi = Context.Session.GetString("username");
     ViewData["Title"] = "Ana Sayfa";
 }
 
@@ -11,25 +10,38 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="css/home.css" />
 </head>
-<body>
+<body data-username="@kullaniciAdi">
     <div class="container">
+        <!-- ÜST BAR -->
         <div class="header">
             <div class="logo-title">
-                <img src="images/logo.png" class="logo" />
+                <img src="~/images/logo.png" class="logo" />
                 <h1>Veri Yapıları Spor Turnuvası Puan Sistemi</h1>
             </div>
             <div class="login-links">
-                <button onclick="location.href='kullanici-giris.html'" class="login-button">Kullanıcı Girişi</button>
-                <button onclick="location.href='admin-giris.html'" class="login-button">Admin Girişi</button>
-                <img src="images/login-1.png" class="login-icon" alt="Login Icon" />
+                @if (string.IsNullOrEmpty(kullaniciAdi))
+                {
+                    <button onclick="location.href='login'" class="login-button">Giriş Yap</button>
+                    //<button onclick="location.href='kaydol.html'" class="login-button">Kaydol</button>
+                }
+                else
+                {
+                    <span class="username-label">👤 @kullaniciAdi</span>
+                    <form method="post" action="/api/user/logout" style="display:inline;">
+                        <button type="submit" class="login-button">Çıkış Yap</button>
+                    </form>
+                }
+                <img src="~/images/login-1.png" class="login-icon" alt="Login Icon" />
             </div>
         </div>
 
+        <!-- ANA İÇERİK -->
         <div class="main-content">
+            <!-- SOL PANEL: TAKIMLAR -->
             <div class="left-panel">
                 <div class="search-bar">
-                    <img src="images/search.png" class="search-icon" />
-                    <input type="text" placeholder="Bir Takım Ara..." id="aramaKutusu" />
+                    <img src="~/images/search.png" class="search-icon" />
+                    <input type="text" placeholder="Bir Takım Ara..." />
                 </div>
 
                 <div class="team-table">
@@ -40,56 +52,29 @@
                         <span>Puan</span>
                         <span></span>
                     </div>
-                    <div id="takim-listesi">
-                        @for (int i = 0; i < Model.Count; i++)
-                        {
-                            var takim = Model[i];
-                            <div class="team-row">
-                                <span>@(i + 1)</span>
-                                <span>@takim.Name</span>
-                                <span>
-                                    @foreach (var sonuc in takim.Last5Match)
-                                    {
-                                        string renk = sonuc switch
-                                        {
-                                            "W" => "win",
-                                            "L" => "loss",
-                                            "D" => "draw",
-                                            _ => ""
-                                        };
-                                        <span class="@renk">@sonuc</span>
-                                    }
-                                </span>
-
-                                <span>@takim.CurrentScore</span>
-                                <span><img src="/images/emptystar-2.png" class="star-icon" /></span>
-                            </div>
-                        }
-                    </div>
+                    <div id="takim-listesi"></div>
                 </div>
             </div>
 
+            <!-- SAĞ PANEL: FAVORİLER -->
             <div class="right-panel">
                 <h2>Favoriler</h2>
-                @if (ViewBag.Favorites != null && ((List<webapplication.Models.Team>)ViewBag.Favorites).Any())
+                @if (string.IsNullOrEmpty(kullaniciAdi))
                 {
-                    foreach (var team in (List<webapplication.Models.Team>)ViewBag.Favorites)
-                    {
-                        <div class="favorite-team">
-                            <span>@team.Name</span>
-                            <span>Puan: @team.CurrentScore</span>
-                        </div>
-                    }
+                    <p>Lütfen giriş yapınız...</p>
                 }
                 else
                 {
-                    <p>Lütfen giriş yapınız veya favori ekleyiniz...</p>
-                }            
+                    <div id="favori-listesi">
+                        <p>Favori takımlarınız yükleniyor...</p>
+                    </div>
+                }
             </div>
 
+            <!-- ALT YAN MENÜ -->
             <div class="side-menu">
-                <a href="home"><img src="/images/teams.png" class="side-icon active" title="Ana Sayfa" /></a>
-                <a href="league"><img src="/images/tournament-1.png" class="side-icon" title="Turnuva" /></a>
+                <a href="home"><img src="~/images/teams.png" class="side-icon active" title="Ana Sayfa" /></a>
+                <a href="league"><img src="~/images/tournament-1.png" class="side-icon" title="Turnuva" /></a>
             </div>
         </div>
     </div>

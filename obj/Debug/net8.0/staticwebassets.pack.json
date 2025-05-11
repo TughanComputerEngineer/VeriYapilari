@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets/css/league.css"
     },
     {
+      "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/css/login.css",
+      "PackagePath": "staticwebassets/css/login.css"
+    },
+    {
       "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
@@ -71,6 +75,10 @@
     {
       "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/js/league.js",
       "PackagePath": "staticwebassets/js/league.js"
+    },
+    {
+      "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/js/login.js",
+      "PackagePath": "staticwebassets/js/login.js"
     },
     {
       "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/js/site.js",

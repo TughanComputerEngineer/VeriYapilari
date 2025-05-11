@@ -41,29 +41,28 @@ namespace webapplication.Models
             }
         }
 
-        public void Remove(LinkNode team)
+     public void Remove(LinkNode teamNode)
+{
+    if (root == null) return;
+
+    if (root == teamNode)
+    {
+        root = root.next;
+        return;
+    }
+
+    LinkNode current = root;
+    while (current.next != null)
+    {
+        if (current.next == teamNode)
         {
-            if(root == null)
-            {
-                return;
-            }
-            else if(root == team)
-            {
-                root = root.next;
-            }
-            else
-            {
-                LinkNode curr = root;
-                while(temp.next != null)
-                {
-                    if(curr.next == team)
-                    {
-                        curr.next = curr.next.next;
-                    }
-                    curr = curr.next;
-                }
-            }
+            current.next = current.next.next;
+            return;
         }
+        current = current.next;
+    }
+}
+
 
         public Team? getRoot()
         {

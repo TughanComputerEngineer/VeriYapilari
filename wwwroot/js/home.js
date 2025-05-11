@@ -1,27 +1,91 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const searchInput = document.querySelector(".search-bar input");
-  const dropdownToggle = document.querySelector(".search-toggle");
-  const dropdownBody = document.getElementById("ligDropdown");
-  const takimRows = Array.from(document.querySelectorAll(".team-row"));
   const takimListesi = document.getElementById("takim-listesi");
+  const favoriListesi = document.getElementById("favori-listesi");
+  const searchInput = document.querySelector(".search-bar input");
 
-  // Arama filtreleme
-  searchInput.addEventListener("input", () => {
-    const aranan = searchInput.value.toLowerCase();
-    takimRows.forEach(row => {
-      const isim = row.querySelector("span:nth-child(2)").innerText.toLowerCase();
-      row.style.display = isim.includes(aranan) ? "grid" : "none";
+  let tumTakimlar = [];
+  let favoriTakimlar = [];
+
+  
+  fetch("/api/takimlar")
+    .then(res => res.json())
+    .then(data => {
+      tumTakimlar = data;
+      favorileriCek();
     });
+
+  function favorileriCek() {
+    fetch("/api/favoriler/listele")
+      .then(res => res.status === 401 ? [] : res.json())
+      .then(data => {
+        favoriTakimlar = data;
+        favoriListesiGuncelle();
+        takimlariYukle(tumTakimlar);
+      });
+  }
+
+  function takimlariYukle(takimlar) {
+    takimListesi.innerHTML = "";
+    takimlar.forEach((takim, index) => {
+      const favorideMi = favoriTakimlar.some(f => f.id === takim.id);
+      const row = document.createElement("div");
+      row.className = "team-row";
+      row.innerHTML = `
+        <span>${index + 1}</span>
+        <span>${takim.isim}</span>
+        <span>${takim.son5mac.map(m => `<span class="${macRenk(m)}">${m}</span>`).join("")}</span>
+        <span>${takim.puan}</span>
+        <span>
+          <img src="images/${favorideMi ? "fullstar.png" : "emptystar-2.png"}"
+               class="star-icon"
+               data-teamid="${takim.id}" />
+        </span>
+      `;
+      takimListesi.appendChild(row);
+    });
+  }
+
+  function favoriListesiGuncelle() {
+    favoriListesi.innerHTML = "";
+    if (favoriTakimlar.length === 0) {
+      favoriListesi.innerHTML = "<p>Henüz favori eklemediniz.</p>";
+      return;
+    }
+
+    favoriTakimlar.forEach(team => {
+      const box = document.createElement("div");
+      box.className = "favorite-team";
+      box.innerHTML = `
+      <span>
+        ${team.sira}. ${team.isim} — Puan: ${team.puan}
+        <img src="images/fullstar.png" class="star-icon" data-teamid="${team.id}" style="margin-left: 8px;" />
+      </span>
+    `;
+      favoriListesi.appendChild(box);
+    });
+  }
+
+  document.addEventListener("click", e => {
+    if (e.target.classList.contains("star-icon")) {
+      const teamId = parseInt(e.target.dataset.teamid);
+      fetch(`/home/togglefavorite?teamId=${teamId}`, {
+        method: "POST"
+      }).then(() => favorileriCek());
+    }
   });
 
-  // Favori yıldız tıklama
-  document.addEventListener("click", function (e) {
-    if (e.target.classList.contains("star-icon")) {
-      const star = e.target;
-      star.classList.toggle("favorited");
-      star.src = star.classList.contains("favorited")
-        ? "images/fullstar.png"
-        : "images/emptystar-2.png";
+  function macRenk(harf) {
+    switch (harf) {
+      case "W": return "win";
+      case "L": return "loss";
+      case "D": return "draw";
+      default: return "";
     }
+  }
+
+  searchInput?.addEventListener("input", () => {
+    const q = searchInput.value.toLowerCase();
+    const filtre = tumTakimlar.filter(t => t.isim.toLowerCase().includes(q));
+    takimlariYukle(filtre);
   });
 });
