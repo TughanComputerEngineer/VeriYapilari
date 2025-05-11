@@ -1,0 +1,84 @@
+@{
+    var kullaniciAdi = Context.Session.GetString("username");
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="css/home.css" />
+</head>
+<body data-username="@kullaniciAdi">
+    <div class="container">
+        <!-- ÜST BAR -->
+        <div class="header">
+            <div class="logo-title">
+                <img src="~/images/logo.png" class="logo" />
+                <h1>Veri Yapıları Spor Turnuvası Puan Sistemi</h1>
+            </div>
+            <div class="login-links">
+                @if (string.IsNullOrEmpty(kullaniciAdi))
+                {
+                    <button onclick="location.href='login'" class="login-button">Giriş Yap</button>
+                    //<button onclick="location.href='kaydol.html'" class="login-button">Kaydol</button>
+                }
+                else
+                {
+                    <span class="username-label">👤 @kullaniciAdi</span>
+                    <form method="post" action="/api/user/logout" style="display:inline;">
+                        <button type="submit" class="login-button">Çıkış Yap</button>
+                    </form>
+                }
+                <img src="~/images/login-1.png" class="login-icon" alt="Login Icon" />
+            </div>
+        </div>
+
+        <!-- ANA İÇERİK -->
+        <div class="main-content">
+            <!-- SOL PANEL: TAKIMLAR -->
+            <div class="left-panel">
+                <div class="search-bar">
+                    <img src="~/images/search.png" class="search-icon" />
+                    <input type="text" placeholder="Bir Takım Ara..." />
+                </div>
+
+                <div class="team-table">
+                    <div class="table-header">
+                        <span>Sıra</span>
+                        <span>Takım Adı</span>
+                        <span>Son 5 Maç</span>
+                        <span>Puan</span>
+                        <span></span>
+                    </div>
+                    <div id="takim-listesi"></div>
+                </div>
+            </div>
+
+            <!-- SAĞ PANEL: FAVORİLER -->
+            <div class="right-panel">
+                <h2>Favoriler</h2>
+                @if (string.IsNullOrEmpty(kullaniciAdi))
+                {
+                    <p>Lütfen giriş yapınız...</p>
+                }
+                else
+                {
+                    <div id="favori-listesi">
+                        <p>Favori takımlarınız yükleniyor...</p>
+                    </div>
+                }
+            </div>
+
+            <!-- ALT YAN MENÜ -->
+            <div class="side-menu">
+                <a href="home"><img src="~/images/teams.png" class="side-icon active" title="Ana Sayfa" /></a>
+                <a href="league"><img src="~/images/tournament-1.png" class="side-icon" title="Turnuva" /></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/home.js"></script>
+</body>
+</html>
