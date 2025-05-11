@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const favoriListesi = document.getElementById("favori-listesi");
   const searchInput = document.querySelector(".search-bar input");
 
+  const username = document.body.dataset.username;
   let tumTakimlar = [];
   let favoriTakimlar = [];
 
@@ -11,7 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(data => {
       tumTakimlar = data;
-      favorileriCek();
+      takimlariYukle(tumTakimlar); 
+      if (username) {
+        favorileriCek(); 
+      }
     });
 
   function favorileriCek() {
@@ -20,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(data => {
         favoriTakimlar = data;
         favoriListesiGuncelle();
-        takimlariYukle(tumTakimlar);
+        takimlariYukle(tumTakimlar); 
       });
   }
 
@@ -53,20 +57,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     favoriTakimlar.forEach(team => {
+      const takimIndex = tumTakimlar.findIndex(t => t.id === team.id);
+      const sira = takimIndex + 1;
+
       const box = document.createElement("div");
       box.className = "favorite-team";
       box.innerHTML = `
-      <span>
-        ${team.sira}. ${team.isim} — Puan: ${team.puan}
-        <img src="images/fullstar.png" class="star-icon" data-teamid="${team.id}" style="margin-left: 8px;" />
-      </span>
-    `;
+        <span>
+          ${sira}. ${team.isim} — Puan: ${team.puan}
+          <img src="images/fullstar.png" class="star-icon" data-teamid="${team.id}" style="margin-left: 8px;" />
+        </span>
+      `;
       favoriListesi.appendChild(box);
     });
   }
 
+  
   document.addEventListener("click", e => {
     if (e.target.classList.contains("star-icon")) {
+      if (!username) {
+        alert("Favori eklemek için giriş yapmalısınız.");
+        return;
+      }
+
       const teamId = parseInt(e.target.dataset.teamid);
       fetch(`/home/togglefavorite?teamId=${teamId}`, {
         method: "POST"
@@ -83,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //  Arama kutusu
   searchInput?.addEventListener("input", () => {
     const q = searchInput.value.toLowerCase();
     const filtre = tumTakimlar.filter(t => t.isim.toLowerCase().includes(q));

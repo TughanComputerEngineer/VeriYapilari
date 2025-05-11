@@ -8,6 +8,8 @@ namespace webapplication.Models
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Match> Matches { get; set; }
+
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         { }

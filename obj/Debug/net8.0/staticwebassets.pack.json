@@ -57,6 +57,14 @@
       "PackagePath": "staticwebassets/images/search.png"
     },
     {
+      "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/images/team_logos/placeholder.png",
+      "PackagePath": "staticwebassets/images/team_logos/placeholder.png"
+    },
+    {
+      "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/images/team_logos/team1.png",
+      "PackagePath": "staticwebassets/images/team_logos/team1.png"
+    },
+    {
       "Id": "/Users/polatceylan/Desktop/Tourney/webapplication/wwwroot/images/teams.png",
       "PackagePath": "staticwebassets/images/teams.png"
     },

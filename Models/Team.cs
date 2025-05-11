@@ -9,8 +9,10 @@ namespace webapplication.Models
         public required string Name { get; set;}
 
         // current season
-        public required int CurrentScore { get; set;}
-        public required List<string> Last5Match { get; set;}
+        public int CurrentScore { get; set;}
+        public List<string> Last5Match { get; set;}
+
+        public string? LogoPath {get; set;} = "/images/team_logos/placeholder.png";
 
         public Team()
         {

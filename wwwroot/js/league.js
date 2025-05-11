@@ -80,7 +80,6 @@ function renderFullBracket(root) {
         
 }
 
-
 // API'den takımları al
 fetch('/api/tournament/teams')
     .then(response => response.json())

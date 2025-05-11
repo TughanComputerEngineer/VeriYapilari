@@ -1,6 +1,8 @@
 // Takım işlemleri
 function getTeams() {
-    return JSON.parse(localStorage.getItem('teams') || '[]');
+    return fetch("/api/takimlar")
+        .then(res => res.json());
+    //return JSON.parse(localStorage.getItem('teams') || '[]');
 }
 
 function setTeams(teams) {
@@ -8,52 +10,101 @@ function setTeams(teams) {
 }
 
 function renderTeams() {
-    const teams = getTeams();
-    const tbody = document.getElementById('teamList');
-    tbody.innerHTML = '';
-    teams.forEach((team, i) => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>${team.name}</td>
-            <td>${team.league}</td>
-            <td><img src="${team.logo || ''}" class="team-logo-table" onerror="this.src='https://via.placeholder.com/36x36?text=+';"></td>
-            <td><button class="btn-red" onclick="deleteTeam(${i})">Sil</button></td>
-        `;
-        tbody.appendChild(tr);
+    getTeams().then(teams => {
+        const tbody = document.getElementById('teamList');
+        tbody.innerHTML = '';
+        teams.forEach((team, i) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${team.isim}</td>
+                <td>${team.puan !== undefined && team.puan !== null ? team.puan : '-'}</td>
+                <td><img src="${team.logo}" class="team-logo-table" onerror="this.src='/images/team_logos/placeholder.png';"></td>
+                <td><button class="btn-red" onclick="deleteTeam(${team.id})">Sil</button></td>
+            `;
+            tbody.appendChild(tr);
+        });
     });
-    renderTeamSelects();
 }
 
 function addTeam() {
-    const name = document.getElementById('teamName').value.trim();
-    const league = document.getElementById('teamLeague').value.trim();
-    const logo = document.getElementById('teamLogoInput').dataset.url || '';
-    if (!name || !league) {
-        alert('Takım adı ve lig zorunlu!');
+    const nameElement = document.getElementById('teamName');
+    const logoElement = document.getElementById('teamLogoInput');
+
+    // Eğer öğe null ise, hata mesajı ver
+    if (!nameElement || !logoElement) {
+        alert("Eksik öğe var! Lütfen tüm alanları doldurduğunuzdan emin olun.");
         return;
     }
-    const teams = getTeams();
-    teams.push({ name, league, logo });
-    setTeams(teams);
-    document.getElementById('teamName').value = '';
-    document.getElementById('teamLeague').value = '';
-    document.getElementById('teamLogoInput').value = '';
-    document.getElementById('teamLogoInput').dataset.url = '';
-    document.getElementById('logoPreview').innerHTML = `
-        <svg width="40" height="40" fill="#444" viewBox="0 0 24 24"><path d="M12 5v14m7-7H5" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div>Takım Logosu</div>
-    `;
-    renderTeams();
+
+    const name = nameElement.value.trim();
+    //const logo
+    let logo = logoElement.dataset.url?.trim();
+    // Eğer logo boşsa placeholder ata
+    if (!logo) {
+        logo = `/images/team_logos/${name.toLowerCase().replace(/\s+/g, '')}.png`;
+    }
+    if (!name) {
+        alert('Takım adı zorunludur!');
+        return;
+    }
+
+    // Takım bilgilerini POST ile ekle
+    fetch('/admin/add-team', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, logo })
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            alert('Takım başarıyla eklendi.');
+            // Başarıyla ekledikten sonra formu sıfırla
+            nameElement.value = '';
+            logoElement.value = '';
+            logoElement.dataset.url = ''; // logo URL'sini temizle
+            document.getElementById('logoPreview').innerHTML = `
+                <svg width="40" height="40" fill="#444" viewBox="0 0 24 24">
+                    <path d="M12 5v14m7-7H5" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>Takım Logosu</div>
+            `;
+            renderTeams(); // listeyi güncelle
+            renderTeamSelects();
+        } else {
+            alert('Takım eklenirken bir hata oluştu.');
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert('Sunucuya bağlanırken hata oluştu.');
+    });
 }
 
-function deleteTeam(idx) {
+function deleteTeam(id) {
     if (!confirm('Takımı silmek istediğinize emin misiniz?')) return;
-    const teams = getTeams();
-    teams.splice(idx, 1);
-    setTeams(teams);
-    renderTeams();
-    renderTeamSelects();
-    renderMatches();
+
+    fetch(`/admin/delete-team`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id }) // gönderilen veri
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('Sunucu hatası');
+        return response.json();
+    })
+    .then(result => {
+        if (result.success) {
+            renderTeams(); // listeyi güncelle
+            renderTeamSelects();
+            renderMatches();
+        } else {
+            alert('Silme işlemi başarısız.');
+        }
+    })
 }
 
 // Logo yükleme
@@ -69,50 +120,84 @@ document.getElementById('teamLogoInput').addEventListener('change', function(e) 
 });
 
 // Takım select'lerini güncelle
-function renderTeamSelects() {
-    const teams = getTeams();
+async function renderTeamSelects() {
+    const teams = await getTeams();
     const select1 = document.getElementById('matchTeam1');
     const select2 = document.getElementById('matchTeam2');
     if (!select1 || !select2) return;
     select1.innerHTML = '';
     select2.innerHTML = '';
-    teams.forEach((team, i) => {
+    teams.forEach((team) => {
         const opt1 = document.createElement('option');
-        opt1.value = i;
-        opt1.textContent = team.name;
+        opt1.value = team.id;
+        opt1.textContent = team.isim;
         select1.appendChild(opt1);
+
         const opt2 = document.createElement('option');
-        opt2.value = i;
-        opt2.textContent = team.name;
+        opt2.value = team.id;
+        opt2.textContent = team.isim;
         select2.appendChild(opt2);
     });
 }
 
 // Maç işlemleri
 function getMatches() {
-    return JSON.parse(localStorage.getItem('matches') || '[]');
+    return fetch("/api/match")
+        .then(res => res.json())  // API'den JSON verisini al
+        .then(matches => {
+            return matches;  // Çekilen maçları döndür
+        })
+        .catch(error => {
+            console.error('Hata:', error);
+            return [];  // Hata durumunda boş bir dizi döndür
+        });
 }
 
 function setMatches(matches) {
     localStorage.setItem('matches', JSON.stringify(matches));
 }
 
-function renderMatches() {
-    const matches = getMatches();
-    const teams = getTeams();
+async function renderMatches() {
+    const matches = await getMatches();
+    const teams = await getTeams();
     const tbody = document.getElementById('matchList');
     if (!tbody) return;
     tbody.innerHTML = '';
     matches.forEach((match, i) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td>${teams[match.team1]?.name || '-'}</td>
+            <td>${match.team1Name || '-'}</td> <!-- Takım 1 adı burada alınacak -->
             <td>${match.score1}</td>
-            <td>${teams[match.team2]?.name || '-'}</td>
+            <td>${match.team2Name || '-'}</td> <!-- Takım 2 adı burada alınacak -->
             <td>${match.score2}</td>
-            <td><button class="btn-red" onclick="deleteMatch(${i})">Sil</button></td>
+            <td><button class="btn-red" onclick="deleteMatch(${match.id})">Sil</button></td>
         `;
         tbody.appendChild(tr);
+    });
+}
+
+function deleteMatch(matchId) {
+    if (!confirm('Maçı silmek istediğinize emin misiniz?')) return;
+
+    fetch('/admin/delete-match', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id: matchId })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.message);
+            renderMatches(); // listeyi yenile
+        } else {
+            alert(data.message || 'Silme işlemi başarısız oldu.');
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert('Bir hata oluştu.');
     });
 }
 
@@ -121,6 +206,7 @@ function addMatch() {
     const team2 = parseInt(document.getElementById('matchTeam2').value);
     const score1 = parseInt(document.getElementById('matchScore1').value);
     const score2 = parseInt(document.getElementById('matchScore2').value);
+
     if (isNaN(team1) || isNaN(team2) || team1 === team2) {
         alert('Farklı iki takım seçmelisiniz!');
         return;
@@ -129,27 +215,50 @@ function addMatch() {
         alert('Skorlar boş olamaz!');
         return;
     }
-    const matches = getMatches();
-    matches.push({ team1, team2, score1, score2 });
-    setMatches(matches);
-    document.getElementById('matchScore1').value = '';
-    document.getElementById('matchScore2').value = '';
-    renderMatches();
+
+    fetch('/admin/add-match', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ team1Id: team1, team2Id: team2, score1, score2 })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.message);
+            document.getElementById('matchScore1').value = '';
+            document.getElementById('matchScore2').value = '';
+            renderMatches();
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert('Bir hata oluştu.');
+    });
 }
 
-function deleteMatch(idx) {
-    if (!confirm('Maçı silmek istediğinize emin misiniz?')) return;
-    const matches = getMatches();
-    matches.splice(idx, 1);
-    setMatches(matches);
-    renderMatches();
-}
-
-// Çıkış
+// çıkış
 function logout() {
-    window.location.href = 'index.html';
+    fetch('/user/logout', {
+        method: 'POST'
+    })
+    .then(res => {
+        if (res.redirected) {
+            window.location.href = res.url;  // Backend'in yönlendirdiği sayfaya git
+        } else {
+            return res.json();
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert('Çıkış yapılırken bir hata oluştu.');
+    });
 }
 
 // İlk yükleme
 renderTeams();
 renderMatches(); 
+renderTeamSelects();
