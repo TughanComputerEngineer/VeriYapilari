@@ -1,0 +1,115 @@
+@model List<webapplication.Models.Team>
+
+@{
+    ViewData["Title"] = "Futbol Turnuvası - Ana Sayfa";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- CSS Dosyasını -->
+    <link href="~/css/home.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-title">
+                <img src="~/images/logo.png" class="logo" />
+                <h1>Veri Yapıları Spor Turnuvası Puan Sistemi</h1>
+            </div>
+            <div class="league-button">
+                <a href="/league" class="btn-league">Lig Tablosu</a>
+            </div>
+            <div class="login-links">
+                <a href="/Account/Login?returnUrl=/" class="dropdown-item">Kullanıcı Girişi</a> |
+                <a href="/Account/Login?returnUrl=/Admin" class="dropdown-item">Admin Girişi</a>
+                <img src="~/images/login-1.png" class="login-icon" />
+            </div>
+
+        </div>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="search-bar">
+                    <input type="text" id="team-search" placeholder="Bir Takım Ara..." />
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+
+                <div class="team-table">
+                    <div class="table-header">
+                        <span>Sıra</span>
+                        <span>Takım Adı</span>
+                        <span>Son 5 Maç</span>
+                        <span>Puan</span>
+                    </div>
+                    <div id="takim-listesi">
+                        @if (Model != null && Model.Any())
+                        {
+                            @foreach (var team in Model)
+                            {
+                                <div class="team-item" data-team-name="@team.Name.ToLower()">
+                                    <span class="team-rank">@team.Id</span>
+                                    <span class="team-name">@team.Name</span>
+                                    <span class="team-matches">
+                                        @{
+                                            if (team.Last5Match != null)
+                                            {
+                                                if (team.Last5Match is string)
+                                                {
+                                                    var matchResults = team.Last5Match.ToString().Split(new[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                                                    foreach (var result in matchResults)
+                                                    {
+                                                        var trimmedResult = result.Trim();
+                                                        <span class="match-result @trimmedResult.ToLower()">@trimmedResult</span>
+                                                    }
+                                                }
+                                                else if (team.Last5Match is System.Collections.IEnumerable)
+                                                {
+                                                    foreach (var result in team.Last5Match)
+                                                    {
+                                                        if (result != null)
+                                                        {
+                                                            var trimmedResult = result.ToString().Trim();
+                                                            <span class="match-result @trimmedResult.ToLower()">@trimmedResult</span>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    </span>
+                                    <span class="team-points">@team.CurrentScore</span>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="no-teams">
+                                <p>Henüz takım bulunmamaktadır.</p>
+                            </div>
+                        }
+                    </div>
+                    <div id="no-results" class="no-results" style="display: none;">
+                        <p>Arama sonucu bulunamadı.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <h2>Favoriler</h2>
+                <p>Lütfen giriş yapınız...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Bağlama -->
+    <script src="~/js/home.js"></script>
+</body>
+</html>

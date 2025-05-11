@@ -1,0 +1,282 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\wwwroot\\css\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:wwwroot\\css\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\wwwroot\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:wwwroot\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\controllers\\leaguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\leaguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\views\\admin\\panel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\admin\\panel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\models\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\wwwroot\\css\\league.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:wwwroot\\css\\league.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\wwwroot\\js\\league.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:wwwroot\\js\\league.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\views\\league\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\league\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\chiko\\desktop\\veriyapilari-basebst\\views\\league\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\league\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "league.js",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\wwwroot\\js\\league.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\league.js",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\wwwroot\\js\\league.js",
+              "RelativeToolTip": "wwwroot\\js\\league.js",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-08T22:52:32.212Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "home.js",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\wwwroot\\js\\home.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\home.js",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\wwwroot\\js\\home.js",
+              "RelativeToolTip": "wwwroot\\js\\home.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-08T23:16:07.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "home.css",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\wwwroot\\css\\home.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\home.css",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\wwwroot\\css\\home.css",
+              "RelativeToolTip": "wwwroot\\css\\home.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-08T23:15:58.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Team.cs",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Models\\Team.cs",
+              "RelativeDocumentMoniker": "Models\\Team.cs",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Models\\Team.cs",
+              "RelativeToolTip": "Models\\Team.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA9wBgAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-08T23:45:19.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAAwM0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T01:09:24.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T19:08:15.325Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Panel.cshtml",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\Admin\\Panel.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Panel.cshtml",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\Admin\\Panel.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Panel.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-10T19:05:34.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LeagueController.cs",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Controllers\\LeagueController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LeagueController.cs",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Controllers\\LeagueController.cs",
+              "RelativeToolTip": "Controllers\\LeagueController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAUwDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-08T22:57:44.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-08T23:15:43.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwCkAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T01:06:46.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\League\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\League\\Index.cshtml",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\League\\Index.cshtml",
+              "RelativeToolTip": "Views\\League\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwAQAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-08T22:57:15.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T00:16:47.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "league.css",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\wwwroot\\css\\league.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\league.css",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\wwwroot\\css\\league.css",
+              "RelativeToolTip": "wwwroot\\css\\league.css",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-08T22:57:28.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T01:07:36.047Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\League\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\League\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\League\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\League\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-08T22:52:19.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\CHIKO\\Desktop\\VeriYapilari-baseBST\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAIwA8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-08T23:15:34.138Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
