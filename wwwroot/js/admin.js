@@ -2,7 +2,6 @@
 function getTeams() {
     return fetch("/api/takimlar")
         .then(res => res.json());
-    //return JSON.parse(localStorage.getItem('teams') || '[]');
 }
 
 function setTeams(teams) {
@@ -40,12 +39,12 @@ function addTeam() {
     //const logo
     let logo = logoElement.dataset.url?.trim();
     // Eğer logo boşsa placeholder ata
-    if (!logo) {
-        logo = `/images/team_logos/${name.toLowerCase().replace(/\s+/g, '')}.png`;
-    }
     if (!name) {
         alert('Takım adı zorunludur!');
         return;
+    }
+    if (!logo) {
+        logo = `/images/team_logos/${name.toLowerCase().replace(/\s+/g, '')}.png`;
     }
 
     // Takım bilgilerini POST ile ekle
@@ -59,7 +58,6 @@ function addTeam() {
     .then(response => response.json())
     .then(result => {
         if (result.success) {
-            alert('Takım başarıyla eklendi.');
             // Başarıyla ekledikten sonra formu sıfırla
             nameElement.value = '';
             logoElement.value = '';
@@ -73,18 +71,23 @@ function addTeam() {
             renderTeams(); // listeyi güncelle
             renderTeamSelects();
         } else {
-            alert('Takım eklenirken bir hata oluştu.');
+            if(result.message) {
+                alert(result.message);
+            }
+            else 
+            {
+                alert('Takım eklenirken bir hata oluştu.');
+            }
+
         }
     })
     .catch(err => {
         console.error(err);
         alert('Sunucuya bağlanırken hata oluştu.');
-    });
+    })
 }
 
 function deleteTeam(id) {
-    if (!confirm('Takımı silmek istediğinize emin misiniz?')) return;
-
     fetch(`/admin/delete-team`, {
         method: 'POST',
         headers: {
@@ -107,17 +110,7 @@ function deleteTeam(id) {
     })
 }
 
-// Logo yükleme
-document.getElementById('teamLogoInput').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function(evt) {
-        document.getElementById('logoPreview').innerHTML = `<img src="${evt.target.result}" alt="Takım Logosu"><div>Takım Logosu</div>`;
-        document.getElementById('teamLogoInput').dataset.url = evt.target.result;
-    };
-    reader.readAsDataURL(file);
-});
+
 
 // Takım select'lerini güncelle
 async function renderTeamSelects() {
@@ -153,10 +146,6 @@ function getMatches() {
         });
 }
 
-function setMatches(matches) {
-    localStorage.setItem('matches', JSON.stringify(matches));
-}
-
 async function renderMatches() {
     const matches = await getMatches();
     const teams = await getTeams();
@@ -177,8 +166,6 @@ async function renderMatches() {
 }
 
 function deleteMatch(matchId) {
-    if (!confirm('Maçı silmek istediğinize emin misiniz?')) return;
-
     fetch('/admin/delete-match', {
         method: 'POST',
         headers: {
@@ -189,7 +176,6 @@ function deleteMatch(matchId) {
     .then(res => res.json())
     .then(data => {
         if (data.success) {
-            alert(data.message);
             renderMatches(); // listeyi yenile
         } else {
             alert(data.message || 'Silme işlemi başarısız oldu.');
@@ -226,7 +212,6 @@ function addMatch() {
     .then(res => res.json())
     .then(data => {
         if (data.success) {
-            alert(data.message);
             document.getElementById('matchScore1').value = '';
             document.getElementById('matchScore2').value = '';
             renderMatches();

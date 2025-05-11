@@ -62,8 +62,6 @@ namespace webapplication.Models
         current = current.next;
     }
 }
-
-
         public Team? getRoot()
         {
             return root?.team;

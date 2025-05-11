@@ -43,28 +43,38 @@ namespace webapplication.Controllers
             {
                 return BadRequest(new { message = "Takım adı zorunludur!" });
             }
+            // Aynı adı taşıyan bir takımın var olup olmadığını kontrol et
+            var existingTeam = _context.Teams.FirstOrDefault(t => t.Name.ToLower() == request.Name.ToLower());
+            if (existingTeam != null)
+            {
+                return BadRequest(new { message = "Bu takım zaten mevcut!" });
+            }
 
-            // Takım adı dosya adı olarak kullanılacağından güvenli hale getiriyoruz
+             // Takım adı dosya adı olarak kullanılacağından güvenli hale getiriyoruz
             var sanitizedTeamName = request.Name.Replace(" ", "_").ToLowerInvariant();
             string logoFileName;
 
+            // Eğer logo gelmediyse ya da placeholder geldi, o zaman özel logo kaydediyoruz
             if (string.IsNullOrWhiteSpace(request.Logo) || request.Logo.EndsWith("placeholder.png"))
             {
-                // Eğer logo gelmediyse ya da placeholder geldiyse, logosu yok demektir → placeholder'ı kopyala
                 var wwwRoot = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
-                var sourcePath = Path.Combine(wwwRoot, "images", "team_logos", "placeholder.png");
+                // Takım adıyla dosya ismi oluşturulacak
                 var destPath = Path.Combine(wwwRoot, "images", "team_logos", $"{sanitizedTeamName}.png");
 
                 try
                 {
-                    System.IO.File.Copy(sourcePath, destPath, true);
+                    // Eğer placeholder'ı kullanmıyorsak, burada direkt takıma ait logo dosyasını kaydediyoruz
+                    // Örneğin, burada "takım_adı.png" olarak kaydedeceğiz
+                    // Boş dosya kaydedilebilir, sadece logonun resmini sonradan yükleyebilirsiniz
+                    System.IO.File.WriteAllBytes(destPath, new byte[] { }); // Boş bir dosya kaydediyoruz
+
                 }
                 catch (Exception ex)
                 {
-                    return StatusCode(500, new { message = "Placeholder resmi kopyalanırken hata oluştu.", error = ex.Message });
+                    return StatusCode(500, new { message = "Logo dosyası kaydedilirken hata oluştu.", error = ex.Message });
                 }
 
-                logoFileName = $"/images/team_logos/{sanitizedTeamName}.png";
+                logoFileName = $"/images/team_logos/{sanitizedTeamName}.png";  // Frontend'deki yol
             }
             else
             {
@@ -85,7 +95,7 @@ namespace webapplication.Controllers
             _context.Teams.Add(newTeam);
             _context.SaveChanges(); // Veritabanına kaydediyoruz
 
-            return Ok(new { success = true, message = "Takım başarıyla eklendi." });
+            return Ok(new { success = true });
         }
 
         [HttpPost("add-match")]
@@ -115,7 +125,7 @@ namespace webapplication.Controllers
             _context.Matches.Add(match);
             _context.SaveChanges();
 
-            return Ok(new { success = true, message = "Maç başarıyla eklendi." });
+            return Ok(new { success = true });
         }
         [HttpPost("delete-match")]
         public IActionResult DeleteMatch([FromBody] DeleteMatchRequest request)
@@ -129,7 +139,7 @@ namespace webapplication.Controllers
             _context.Matches.Remove(match);
             _context.SaveChanges();
 
-            return Ok(new { success = true, message = "Maç başarıyla silindi." });
+            return Ok(new { success = true });
         }
    
         public class TeamDeleteRequest

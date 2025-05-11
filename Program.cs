@@ -92,5 +92,13 @@ namespace webapplication
             // Uygulamayı başlatıyoruz
             app.Run();
         }
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            // Diğer konfigürasyonlar...
+
+            // Statik dosyaları sunuyoruz (wwwroot içindeki dosyalar)
+            app.UseStaticFiles();  // wwwroot dizinindeki dosyalar bu satır ile sunuluyor
+        }
     }
 }
