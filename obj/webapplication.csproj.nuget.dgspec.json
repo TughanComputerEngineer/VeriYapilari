@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CHIKO\\Desktop\\sonsürümv3\\VeriYapilari-base\\webapplication.csproj": {}
+    "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.4 maç sonuçları ve ouanları entegre edildi\\VeriYapilari-base\\webapplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CHIKO\\Desktop\\sonsürümv3\\VeriYapilari-base\\webapplication.csproj": {
+    "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.4 maç sonuçları ve ouanları entegre edildi\\VeriYapilari-base\\webapplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3\\VeriYapilari-base\\webapplication.csproj",
+        "projectUniqueName": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.4 maç sonuçları ve ouanları entegre edildi\\VeriYapilari-base\\webapplication.csproj",
         "projectName": "webapplication",
-        "projectPath": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3\\VeriYapilari-base\\webapplication.csproj",
+        "projectPath": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.4 maç sonuçları ve ouanları entegre edildi\\VeriYapilari-base\\webapplication.csproj",
         "packagesPath": "C:\\Users\\CHIKO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3\\VeriYapilari-base\\obj\\",
+        "outputPath": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.4 maç sonuçları ve ouanları entegre edildi\\VeriYapilari-base\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
