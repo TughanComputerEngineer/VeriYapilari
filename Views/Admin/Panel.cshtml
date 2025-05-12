@@ -1,0 +1,577 @@
+﻿@model List<webapplication.Models.Team>
+@{
+    Layout = "~/Views/Admin/_Layout.cshtml";
+    ViewData["Title"] = "Admin Panel - Takım Yönetimi";
+}
+
+<div class="admin-container">
+    <div class="panel-header">
+        <h1>Takım Yönetimi</h1>
+        <button id="createTeamBtn" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Yeni Takım Ekle
+        </button>
+    </div>
+
+    <div class="panel-content">
+        <div class="teams-table-container">
+            <table class="teams-table">
+                <thead>
+                    <tr>
+                        <th width="5%">ID</th>
+                        <th width="5%">Logo</th>
+                        <th width="20%">Takım Adı</th>
+                        <th width="20%">Lig</th>
+                        <th width="10%">Puan</th>
+                        <th width="30%">Son 5 Maç</th>
+                        <th width="10%">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var team in Model)
+                        {
+                            <tr data-team-id="@team.Id">
+                                <td>@team.Id</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(team.ImagePath))
+                                    {
+                                        <img src="@team.ImagePath" alt="@team.Name" class="team-logo-img" />
+                                    }
+                                    else
+                                    {
+                                        <div class="team-logo-placeholder">@team.Name.Substring(0, 1).ToUpper()</div>
+                                    }
+                                </td>
+                                <td>@team.Name</td>
+                                <td>@team.CurrentLeague</td>
+                                <td>@team.CurrentScore</td>
+                                <td>
+                                    <div class="match-results">
+                                        @foreach (var result in team.Last5Match)
+                                        {
+                                            <span class="match-result @result.ToLower()">@result</span>
+                                        }
+                                        <button class="edit-matches-btn" data-team-id="@team.Id">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="edit-team-btn" data-team-id="@team.Id">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="delete-team-btn" data-team-id="@team.Id">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7" class="no-teams">Henüz takım bulunmamaktadır.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Takım Ekleme Modal -->
+<div id="teamModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle">Yeni Takım Ekle</h2>
+        <form id="teamForm" enctype="multipart/form-data">
+            <input type="hidden" id="teamId" name="teamId" value="0">
+
+            <div class="form-group">
+                <label for="teamName">Takım Adı:</label>
+                <input type="text" id="teamName" name="teamName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="teamLogo">Takım Logosu:</label>
+                <div class="logo-upload-container">
+                    <div class="logo-preview" id="logoPreview">
+                        <div class="logo-placeholder" id="logoPlaceholder">
+                            <i class="fas fa-image"></i>
+                            <span>Logo Seç</span>
+                        </div>
+                        <img id="logoPreviewImg" src="#" alt="Logo Önizleme" style="display: none;">
+                    </div>
+                    <input type="file" id="teamLogo" name="teamLogo" accept="image/*" class="logo-input">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="teamLeague">Lig:</label>
+                <input type="text" id="teamLeague" name="teamLeague" required>
+            </div>
+
+            <div class="form-group">
+                <label for="teamScore">Puan:</label>
+                <input type="number" id="teamScore" name="teamScore" required min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="teamMatches">Son 5 Maç (W: Galibiyet, L: Mağlubiyet, D: Beraberlik):</label>
+                <div class="match-inputs">
+                    <select id="match1" class="match-select">
+                        <option value="W">W</option>
+                        <option value="L">L</option>
+                        <option value="D">D</option>
+                    </select>
+                    <select id="match2" class="match-select">
+                        <option value="W">W</option>
+                        <option value="L">L</option>
+                        <option value="D">D</option>
+                    </select>
+                    <select id="match3" class="match-select">
+                        <option value="W">W</option>
+                        <option value="L">L</option>
+                        <option value="D">D</option>
+                    </select>
+                    <select id="match4" class="match-select">
+                        <option value="W">W</option>
+                        <option value="L">L</option>
+                        <option value="D">D</option>
+                    </select>
+                    <select id="match5" class="match-select">
+                        <option value="W">W</option>
+                        <option value="L">L</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="cancelBtn" class="btn btn-secondary">İptal</button>
+                <button type="submit" id="saveTeamBtn" class="btn btn-primary">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Maç Sonuçları Düzenleme Modal -->
+<div id="matchesModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Maç Sonuçlarını Düzenle</h2>
+        <form id="matchesForm">
+            <input type="hidden" id="matchesTeamId" name="matchesTeamId" value="0">
+
+            <div class="form-group">
+                <label>Son 5 Maç:</label>
+                <div class="match-inputs">
+                    <select id="editMatch1" class="match-select">
+                        <option value="W">W</option>
+                        <option value="L">L</option>
+                        <option value="D">D</option>
+                    </select>
+                    <select id="editMatch2" class="match-select">
+                        <option value="W">W</option>
+                        <option value="L">L</option>
+                        <option value="D">D</option>
+                    </select>
+                    <select id="editMatch3" class="match-select">
+                        <option value="W">W</option>
+                        <option value="L">L</option>
+                        <option value="D">D</option>
+                    </select>
+                    <select id="editMatch4" class="match-select">
+                        <option value="W">W</option>
+                        <option value="L">L</option>
+                        <option value="D">D</option>
+                    </select>
+                    <select id="editMatch5" class="match-select">
+                        <option value="W">W</option>
+                        <option value="L">L</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="cancelMatchesBtn" class="btn btn-secondary">İptal</button>
+                <button type="submit" id="saveMatchesBtn" class="btn btn-primary">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Silme Onay Modal -->
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Takımı Sil</h2>
+        <p>Bu takımı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</p>
+        <input type="hidden" id="deleteTeamId" value="0">
+        <div class="form-actions">
+            <button type="button" id="cancelDeleteBtn" class="btn btn-secondary">İptal</button>
+            <button type="button" id="confirmDeleteBtn" class="btn btn-danger">Sil</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Logo yükleme alanı için stiller */
+    .logo-upload-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .logo-preview {
+        width: 80px;
+        height: 80px;
+        border: 2px dashed #ccc;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: #f8f9fa;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .logo-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #aaa;
+        font-size: 0.8rem;
+    }
+
+        .logo-placeholder i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+    #logoPreviewImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .logo-input {
+        display: none;
+    }
+
+    .team-logo-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .team-logo-placeholder {
+        width: 40px;
+        height: 40px;
+        background-color: var(--accent-color, #0f3460);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Logo seçme işlemleri
+        const logoPreview = document.getElementById('logoPreview');
+        const teamLogo = document.getElementById('teamLogo');
+        const logoPreviewImg = document.getElementById('logoPreviewImg');
+        const logoPlaceholder = document.getElementById('logoPlaceholder');
+
+        // Logo önizleme alanına tıklandığında dosya seçme dialogunu aç
+        if (logoPreview) {
+            logoPreview.addEventListener('click', function() {
+                teamLogo.click();
+            });
+        }
+
+        // Dosya seçildiğinde önizleme göster
+        if (teamLogo) {
+            teamLogo.addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        logoPreviewImg.src = e.target.result;
+                        logoPreviewImg.style.display = 'block';
+                        if (logoPlaceholder) {
+                            logoPlaceholder.style.display = 'none';
+                        }
+                    }
+
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        }
+
+        // Modallar
+        const teamModal = document.getElementById('teamModal');
+        const matchesModal = document.getElementById('matchesModal');
+        const deleteModal = document.getElementById('deleteModal');
+
+        // Yeni takım ekleme modalını aç
+        const createTeamBtn = document.getElementById('createTeamBtn');
+
+        if (createTeamBtn) {
+            createTeamBtn.addEventListener('click', function() {
+                document.getElementById('modalTitle').textContent = 'Yeni Takım Ekle';
+                document.getElementById('teamId').value = '0';
+                document.getElementById('teamForm').reset();
+
+                // Logo önizlemeyi sıfırla
+                if (logoPreviewImg) {
+                    logoPreviewImg.style.display = 'none';
+                }
+                if (logoPlaceholder) {
+                    logoPlaceholder.style.display = 'flex';
+                }
+
+                teamModal.style.display = 'block';
+            });
+        }
+
+        // Takım düzenleme modalını aç
+        const editTeamBtns = document.querySelectorAll('.edit-team-btn');
+
+        editTeamBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const teamId = this.getAttribute('data-team-id');
+
+                // AJAX ile takım bilgilerini al
+                fetch(`/Admin/GetTeamDetails?id=${teamId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            const team = data.team;
+
+                            document.getElementById('modalTitle').textContent = 'Takım Düzenle';
+                            document.getElementById('teamId').value = team.id;
+                            document.getElementById('teamName').value = team.name;
+                            document.getElementById('teamLeague').value = team.league;
+                            document.getElementById('teamScore').value = team.score;
+
+                            // Maç sonuçlarını doldur
+                            const matches = team.matches;
+                            for (let i = 0; i < matches.length && i < 5; i++) {
+                                document.getElementById('match' + (i + 1)).value = matches[i];
+                            }
+
+                            // Logo önizlemeyi ayarla
+                            if (team.imagePath) {
+                                logoPreviewImg.src = team.imagePath;
+                                logoPreviewImg.style.display = 'block';
+                                if (logoPlaceholder) {
+                                    logoPlaceholder.style.display = 'none';
+                                }
+                            } else {
+                                logoPreviewImg.style.display = 'none';
+                                if (logoPlaceholder) {
+                                    logoPlaceholder.style.display = 'flex';
+                                }
+                            }
+
+                            teamModal.style.display = 'block';
+                        } else {
+                            alert('Hata: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Hata:', error);
+                        alert('Takım bilgileri alınırken bir hata oluştu.');
+                    });
+            });
+        });
+
+        // Modalları kapat
+        const closeButtons = document.querySelectorAll('.close, #cancelBtn, #cancelMatchesBtn, #cancelDeleteBtn');
+
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                if (teamModal) teamModal.style.display = 'none';
+                if (matchesModal) matchesModal.style.display = 'none';
+                if (deleteModal) deleteModal.style.display = 'none';
+            });
+        });
+
+        // Takım formunu gönder
+        const teamForm = document.getElementById('teamForm');
+
+        if (teamForm) {
+            teamForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Form verilerini al
+                const formData = new FormData(this);
+
+                // Maç sonuçlarını ekle
+                const matchResults = [];
+                for (let i = 1; i <= 5; i++) {
+                    matchResults.push(document.getElementById('match' + i).value);
+                }
+                formData.append('matchResults', matchResults.join(','));
+
+                // Kaydet butonunu devre dışı bırak
+                const saveBtn = document.getElementById('saveTeamBtn');
+                if (saveBtn) {
+                    saveBtn.disabled = true;
+                    saveBtn.textContent = 'Kaydediliyor...';
+                }
+
+                // AJAX ile gönder
+                fetch('/Admin/SaveTeam', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Başarılı veya başarısız olsa da sayfayı yenile
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('Hata:', error);
+                    // Hata olsa da sayfayı yenile
+                    window.location.reload();
+                });
+            });
+        }
+
+        // Maç sonuçları düzenleme modalını aç
+        const editMatchesBtns = document.querySelectorAll('.edit-matches-btn');
+
+        if (editMatchesBtns.length > 0 && matchesModal) {
+            editMatchesBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const teamId = this.getAttribute('data-team-id');
+                    const teamRow = document.querySelector(`tr[data-team-id="${teamId}"]`);
+                    const matchResults = teamRow.querySelectorAll('.match-result');
+
+                    document.getElementById('matchesTeamId').value = teamId;
+
+                    // Mevcut maç sonuçlarını doldur
+                    for (let i = 0; i < matchResults.length && i < 5; i++) {
+                        document.getElementById('editMatch' + (i + 1)).value = matchResults[i].textContent;
+                    }
+
+                    matchesModal.style.display = 'block';
+                });
+            });
+        }
+
+        // Maç sonuçları formunu gönder
+        const matchesForm = document.getElementById('matchesForm');
+
+        if (matchesForm) {
+            matchesForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const teamId = document.getElementById('matchesTeamId').value;
+                const matchResults = [];
+
+                for (let i = 1; i <= 5; i++) {
+                    matchResults.push(document.getElementById('editMatch' + i).value);
+                }
+
+                // AJAX ile gönder
+                fetch('/Admin/UpdateMatchResults', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        teamId: parseInt(teamId),
+                        matchResults: matchResults.join(',')
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Başarılı veya başarısız olsa da sayfayı yenile
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('Hata:', error);
+                    // Hata olsa da sayfayı yenile
+                    window.location.reload();
+                });
+            });
+        }
+
+        // Takım silme modalını aç
+        const deleteTeamBtns = document.querySelectorAll('.delete-team-btn');
+
+        if (deleteTeamBtns.length > 0 && deleteModal) {
+            deleteTeamBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const teamId = this.getAttribute('data-team-id');
+
+                    document.getElementById('deleteTeamId').value = teamId;
+                    deleteModal.style.display = 'block';
+                });
+            });
+        }
+
+        // Takım silme işlemini onayla
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+
+        if (confirmDeleteBtn) {
+            confirmDeleteBtn.addEventListener('click', function() {
+                const teamId = document.getElementById('deleteTeamId').value;
+
+                // Silme butonunu devre dışı bırak
+                confirmDeleteBtn.disabled = true;
+                confirmDeleteBtn.textContent = 'Siliniyor...';
+
+                // AJAX ile sil
+                fetch('/Admin/DeleteTeam', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id: parseInt(teamId)
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Başarılı veya başarısız olsa da sayfayı yenile
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('Hata:', error);
+                    // Hata olsa da sayfayı yenile
+                    window.location.reload();
+                });
+            });
+        }
+
+        // Sayfa dışına tıklandığında modalları kapat
+        window.addEventListener('click', function(e) {
+            if (teamModal && e.target === teamModal) {
+                teamModal.style.display = 'none';
+            }
+            if (matchesModal && e.target === matchesModal) {
+                matchesModal.style.display = 'none';
+            }
+            if (deleteModal && e.target === deleteModal) {
+                deleteModal.style.display = 'none';
+            }
+        });
+    });
+</script>

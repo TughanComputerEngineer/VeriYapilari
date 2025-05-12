@@ -1,0 +1,110 @@
+﻿@model List<webapplication.Models.User>
+@{
+    Layout = "~/Views/Admin/_Layout.cshtml";
+    ViewData["Title"] = "Admin Panel - Üye Yönetimi";
+}
+
+<div class="admin-container">
+    <div class="panel-header">
+        <h1>Üye Yönetimi</h1>
+    </div>
+
+    <div class="panel-content">
+        <div class="users-table-container">
+            <table class="users-table">
+                <thead>
+                    <tr>
+                        <th width="10%">ID</th>
+                        <th width="55%">Kullanıcı Adı</th>
+                        <th width="20%">Durum</th>
+                        <th width="15%">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var user in Model)
+                        {
+                            <tr data-user-id="@user.Id">
+                                <td>@user.Id</td>
+                                <td>@user.Username</td>
+                                <td>
+                                    <span class="user-status @(user.IsAdmin ? "admin" : "user")">
+                                        @(user.IsAdmin ? "Admin" : "Kullanıcı")
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="edit-user-btn" data-user-id="@user.Id">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="delete-user-btn" data-user-id="@user.Id">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="toggle-admin-btn" data-user-id="@user.Id" title="@(user.IsAdmin ? "Admin yetkisini kaldır" : "Admin yetkisi ver")">
+                                            <i class="fas @(user.IsAdmin ? "fa-user-minus" : "fa-user-plus")"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="no-users">Henüz kullanıcı bulunmamaktadır.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Kullanıcı Düzenleme Modal -->
+<div id="userModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Kullanıcı Düzenle</h2>
+        <form id="userForm">
+            <input type="hidden" id="userId" name="userId" value="0">
+
+            <div class="form-group">
+                <label for="username">Kullanıcı Adı:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Şifre (Değiştirmek istemiyorsanız boş bırakın):</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="form-group">
+                <label for="isAdmin">Admin Yetkisi:</label>
+                <select id="isAdmin" name="isAdmin">
+                    <option value="false">Kullanıcı</option>
+                    <option value="true">Admin</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="cancelUserBtn" class="btn btn-secondary">İptal</button>
+                <button type="submit" id="saveUserBtn" class="btn btn-primary">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Silme Onay Modal -->
+<div id="deleteUserModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Kullanıcıyı Sil</h2>
+        <p>Bu kullanıcıyı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</p>
+        <input type="hidden" id="deleteUserId" value="0">
+        <div class="form-actions">
+            <button type="button" id="cancelDeleteUserBtn" class="btn btn-secondary">İptal</button>
+            <button type="button" id="confirmDeleteUserBtn" class="btn btn-danger">Sil</button>
+        </div>
+    </div>
+</div>

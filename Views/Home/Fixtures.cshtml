@@ -1,0 +1,724 @@
+@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "Fikstürler";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <div class="header">
+            <div class="logo-title">
+                <img src="~/images/logo.png" class="logo" />
+                <h1>Veri Yapıları Spor Turnuvası Puan Sistemi</h1>
+            </div>
+            <div class="login-buttons">
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <div class="user-info">
+                        <span class="username">@User.Identity.Name</span>
+                        <div class="dropdown">
+                            <img src="~/images/login-1.png" class="login-icon" />
+                            <div class="dropdown-content">
+                                <form method="post" action="/Account/Logout">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="logout-button">Çıkış Yap</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <a href="/Account/Login" class="btn-login">Giriş Yap</a>
+                    <img src="~/images/login-1.png" class="login-icon" />
+                }
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- İçerik Konteyneri -->
+            <div class="fixtures-container">
+                <div class="fixtures-header">
+                    <h1>Fikstürler</h1>
+                </div>
+
+                <div class="completed-matches-container">
+                    <div class="section-title">
+                        <i class="fas fa-history"></i> Tamamlanan Maçlar
+                    </div>
+
+                    <div class="matches-scrollable">
+                        @if (ViewBag.CompletedMatches != null && ViewBag.CompletedMatches.Count > 0)
+                        {
+                            @foreach (var match in ViewBag.CompletedMatches)
+                            {
+                                <div class="match-card completed">
+                                    <div class="match-header">
+                                        <span class="match-date">@match.MatchDate.ToString("dd.MM.yyyy HH:mm")</span>
+                                        <span class="match-status completed">Tamamlandı</span>
+                                        <span class="match-location">@match.Location</span>
+                                    </div>
+                                    <div class="match-teams">
+                                        <div class="home-team @(match.HomeScore > match.AwayScore ? "winner" : "")">
+                                            <span class="team-name">@match.HomeTeamName</span>
+                                            <span class="team-score">@match.HomeScore</span>
+                                        </div>
+                                        <div class="match-separator">-</div>
+                                        <div class="away-team @(match.AwayScore > match.HomeScore ? "winner" : "")">
+                                            <span class="team-score">@match.AwayScore</span>
+                                            <span class="team-name">@match.AwayTeamName</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="no-matches">
+                                <p>Tamamlanan maç bulunmamaktadır.</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Sonraki Maçlar Bölümü -->
+                <div class="upcoming-matches-container">
+                    <div class="section-title">
+                        <i class="fas fa-calendar-alt"></i> Sonraki Maçlar
+                    </div>
+
+                    <div class="matches-scrollable">
+                        @if (ViewBag.UpcomingMatches != null && ViewBag.UpcomingMatches.Count > 0)
+                        {
+                            @foreach (var match in ViewBag.UpcomingMatches)
+                            {
+                                <div class="match-card upcoming">
+                                    <div class="match-header">
+                                        <span class="match-date">@match.MatchDate.ToString("dd.MM.yyyy HH:mm")</span>
+                                        <span class="match-status upcoming">Planlandı</span>
+                                        <span class="match-location">@match.Location</span>
+                                    </div>
+                                    <div class="match-teams">
+                                        <div class="home-team">
+                                            <span class="team-name">@match.HomeTeamName</span>
+                                            <span class="team-score">@match.HomeScore</span>
+                                        </div>
+                                        <div class="match-separator">-</div>
+                                        <div class="away-team">
+                                            <span class="team-score">@match.AwayScore</span>
+                                            <span class="team-name">@match.AwayTeamName</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="no-matches">
+                                <p>Planlanmış maç bulunmamaktadır.</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Diğer maç bölümleri - Sadece Devam Eden Maçlar -->
+                @if (ViewBag.LiveMatches != null && ViewBag.LiveMatches.Count > 0)
+                {
+                    <div class="other-matches">
+                        <div class="matches-section live-matches">
+                            <h2><i class="fas fa-circle live-icon"></i> Devam Eden Maçlar</h2>
+                            <div class="matches-list">
+                                @foreach (var match in ViewBag.LiveMatches)
+                                {
+                                    <div class="match-card live">
+                                        <div class="match-header">
+                                            <span class="match-date">@match.MatchDate.ToString("dd.MM.yyyy HH:mm")</span>
+                                            <span class="match-status live">CANLI</span>
+                                            <span class="match-location">@match.Location</span>
+                                        </div>
+                                        <div class="match-teams">
+                                            <div class="home-team">
+                                                <span class="team-name">@match.HomeTeamName</span>
+                                                <span class="team-score">@match.HomeScore</span>
+                                            </div>
+                                            <div class="match-separator">-</div>
+                                            <div class="away-team">
+                                                <span class="team-score">@match.AwayScore</span>
+                                                <span class="team-name">@match.AwayTeamName</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <!-- Sağdaki İnce Navigation Bar -->
+            <div class="right-nav">
+                <div class="side-menu">
+                    <a href="/" class="side-menu-item">
+                        <div class="nav-icon-container">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span class="nav-text">Ana Sayfa</span>
+                        </div>
+                    </a>
+
+                    <a href="/league" class="side-menu-item">
+                        <div class="nav-icon-container">
+                            <img src="~/images/tournament.png" alt="Lig İkonu" class="nav-icon" />
+                            <span class="nav-text">Lig Tablosu</span>
+                        </div>
+                    </a>
+
+                    <a href="/home/fixtures" class="side-menu-item active">
+                        <div class="nav-icon-container">
+                            <i class="far fa-calendar-alt nav-icon"></i>
+                            <span class="nav-text">Fikstürler</span>
+                        </div>
+                    </a>
+
+                    <!-- Admin Panel butonu side menünün en altında olacak -->
+                    @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
+                    {
+                        <a href="/admin" class="side-menu-item admin-menu-item">
+                            <div class="nav-icon-container admin">
+                                <i class="fas fa-cog nav-icon"></i>
+                                <span class="nav-text">Admin <i class="fas fa-user-shield"></i></span>
+                            </div>
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+    /* Dark Theme Stilleri */
+    body.dark-theme {
+        font-family: 'Roboto', sans-serif;
+        background-color: #1a1a2e;
+        color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #30305a;
+    }
+
+    .logo-title {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+        color: #f0f0f0;
+        margin: 0;
+    }
+
+    .login-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-login {
+        background-color: #3366ff;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    .login-icon {
+        width: 24px;
+        height: 24px;
+        filter: invert(1);
+    }
+
+    /* Ana içerik düzeni */
+    .main-content {
+        display: flex;
+        position: relative;
+    }
+
+    /* Sağdaki navigation bar stilleri */
+    .right-nav {
+        position: fixed;
+        right: 0;
+        top: 80px;
+        height: calc(100vh - 80px);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .side-menu {
+        background-color: #24243e;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+        transition: width 0.3s ease;
+        width: 70px;
+        overflow: hidden;
+    }
+
+    .side-menu:hover {
+        width: 180px;
+    }
+
+    .side-menu-item {
+        text-decoration: none;
+        color: #f0f0f0;
+        margin: 8px 0;
+    }
+
+    .nav-icon-container {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        border-left: 3px solid transparent;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .nav-icon-container:hover {
+        background-color: #363670;
+    }
+
+    .nav-icon {
+        width: 24px;
+        height: 24px;
+        color: #6a93ff;
+        margin-right: 15px;
+    }
+
+    .nav-text {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.3s ease;
+    }
+
+    .side-menu:hover .nav-text {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .admin-menu-item {
+        margin-top: auto;
+    }
+
+    .nav-icon-container.admin {
+        background-color: #403073;
+    }
+
+    .side-menu-item.active .nav-icon-container {
+        border-left: 3px solid #3366ff;
+        background-color: #363670;
+    }
+
+    /* Fikstür stilleri */
+    .fixtures-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: calc(100% - 70px);  /* Sağdaki navigation bar genişliği kadar alan bırakılıyor */
+        margin-right: 70px;  /* Sağdaki navigation bar genişliği kadar sağdan margin */
+        margin: 0 auto;
+    }
+
+    .fixtures-header {
+        text-align: center;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    .fixtures-header h1 {
+        font-size: 32px;
+        color: #f0f0f0;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+    }
+
+    .fixtures-header h1:after {
+        content: '';
+        position: absolute;
+        width: 60%;
+        height: 3px;
+        background-color: #3366ff;
+        bottom: 0;
+        left: 20%;
+    }
+
+    /* Tamamlanan maçlar scrollable alanı */
+    .completed-matches-container, .upcoming-matches-container {
+        width: 800px;
+        max-width: 95%;
+        background-color: #24243e;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        color: #f0f0f0;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #30305a;
+    }
+
+    .section-title i {
+        color: #3366ff;
+        margin-right: 10px;
+    }
+
+    .matches-scrollable {
+        max-height: 70vh; /* Ekran yüksekliğine göre daha yüksek */
+        overflow-y: auto;
+        padding-right: 10px;
+        /* Scrollbar stilleri */
+        scrollbar-width: thin;
+        scrollbar-color: #3366ff #24243e;
+    }
+
+    /* Webkit tarayıcılar için scrollbar stilleri */
+    .matches-scrollable::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .matches-scrollable::-webkit-scrollbar-track {
+        background: #30305a;
+        border-radius: 4px;
+    }
+
+    .matches-scrollable::-webkit-scrollbar-thumb {
+        background-color: #3366ff;
+        border-radius: 4px;
+    }
+
+    /* Maç kartları */
+    .match-card {
+        background-color: #30305a;
+        border-radius: 6px;
+        padding: 15px;
+        margin-bottom: 15px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .match-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .match-card.completed {
+        border-left: 4px solid #00ccaa;
+    }
+
+    .match-card.live {
+        border-left: 4px solid #ff3366;
+    }
+
+    .match-card.upcoming {
+        border-left: 4px solid #3366ff;
+    }
+
+    .match-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #b0b0cc;
+    }
+
+    .match-status {
+        font-weight: bold;
+        padding: 3px 8px;
+        border-radius: 3px;
+    }
+
+    .match-status.completed {
+        background-color: #00ccaa;
+        color: #24243e;
+    }
+
+    .match-status.live {
+        background-color: #ff3366;
+        color: white;
+    }
+
+    .match-status.upcoming {
+        background-color: #3366ff;
+        color: white;
+    }
+
+    .match-teams {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 18px;
+    }
+
+    .home-team, .away-team {
+        display: flex;
+        align-items: center;
+        width: 45%;
+    }
+
+    .home-team {
+        justify-content: flex-end;
+        text-align: right;
+    }
+
+    .away-team {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .team-name {
+        font-weight: 500;
+        color: #f0f0f0;
+    }
+
+    .team-score {
+        font-weight: bold;
+        font-size: 24px;
+        color: #f0f0f0;
+        margin: 0 10px;
+    }
+
+    .match-separator {
+        font-weight: bold;
+        margin: 0 10px;
+        color: #b0b0cc;
+    }
+
+    .winner .team-name {
+        font-weight: bold;
+        color: #00ccaa;
+    }
+
+    .no-matches {
+        padding: 20px;
+        text-align: center;
+        color: #b0b0cc;
+        background-color: #30305a;
+        border-radius: 6px;
+    }
+
+    /* Diğer maç bölümleri */
+    .other-matches {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .matches-section {
+        background-color: #24243e;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .matches-section h2 {
+        font-size: 22px;
+        color: #f0f0f0;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #30305a;
+    }
+
+    .matches-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 15px;
+    }
+
+    .live-icon {
+        color: #ff3366;
+        animation: pulse 1.5s infinite;
+    }
+
+    /* CSS Animasyon tanımı */
+    @@keyframes pulse {
+        0% { opacity: 0.5; }
+        50% { opacity: 1; }
+        100% { opacity: 0.5; }
+    }
+
+    /* Dropdown menü için stil */
+    .user-info {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .username {
+        margin-right: 10px;
+        color: #f0f0f0;
+        font-weight: 500;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #24243e;
+        min-width: 120px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 1;
+        border-radius: 4px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .logout-button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background-color: transparent;
+        color: #f0f0f0;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .logout-button:hover {
+        background-color: #363670;
+    }
+
+    /* Responsive tasarım için CSS Media Query */
+    @@media (max-width: 1200px) {
+        .completed-matches-container {
+            width: 90%;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .main-content {
+            flex-direction: column-reverse;
+        }
+        
+        .right-nav {
+            position: static;
+            height: auto;
+            width: 100%;
+            margin-bottom: 20px;
+            top: 0;
+        }
+        
+        .side-menu {
+            flex-direction: row;
+            width: 100%;
+            height: auto;
+            padding: 10px 0;
+            justify-content: space-around;
+        }
+        
+        .side-menu:hover {
+            width: 100%;
+        }
+        
+        .nav-icon-container {
+            flex-direction: column;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .nav-icon {
+            margin-right: 0;
+            margin-bottom: 5px;
+        }
+        
+        .side-menu-item.active .nav-icon-container {
+            border-left: none;
+            border-bottom: 3px solid #3366ff;
+        }
+        
+        .nav-text {
+            font-size: 12px;
+            opacity: 1;
+            transform: none;
+        }
+        
+        .fixtures-container {
+            width: 100%;
+            margin-right: 0;
+        }
+        
+        .completed-matches-container {
+            width: 100%;
+        }
+        
+        .matches-list {
+            grid-template-columns: 1fr;
+        }
+        
+        .match-header {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .match-header span {
+            margin-bottom: 5px;
+        }
+        
+        .admin-menu-item {
+            margin-top: 0;
+        }
+    }
+</style>
+</body>
+</html> 

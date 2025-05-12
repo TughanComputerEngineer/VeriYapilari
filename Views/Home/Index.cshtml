@@ -1,0 +1,466 @@
+@model List<webapplication.Models.Team>
+@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "Futbol Turnuvası - Ana Sayfa";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- CSS Dosyası -->
+    <link href="~/css/home.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-title">
+                <img src="~/images/logo.png" class="logo" />
+                <h1>Veri Yapıları Spor Turnuvası Puan Sistemi</h1>
+            </div>
+            <div class="login-buttons">
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <div class="user-info">
+                        <span class="username">@User.Identity.Name</span>
+                        <div class="dropdown">
+                            <img src="~/images/login-1.png" class="login-icon" />
+                            <div class="dropdown-content">
+                                <form method="post" action="/Account/Logout">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="logout-button">Çıkış Yap</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <a href="/Account/Login" class="btn-login">Giriş Yap</a>
+                    <img src="~/images/login-1.png" class="login-icon" />
+                }
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="search-bar">
+                    <input type="text" id="team-search" placeholder="Bir Takım Ara..." />
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+
+                <div class="team-table">
+                    <div class="table-header">
+                        <span>Sıra</span>
+                        <span>Takım Adı</span>
+                        <span>Son 5 Maç</span>
+                        <span>Puan</span>
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <span>Favoriler</span>
+                        }
+                    </div>
+                    <div id="takim-listesi">
+                        @if (Model != null && Model.Any())
+                        {
+                            @foreach (var team in Model)
+                            {
+                                <div class="team-item" data-team-name="@team.Name.ToLower()">
+                                    <span class="team-rank">@team.Id</span>
+                                    <span class="team-name">
+                                        @if (!string.IsNullOrEmpty(team.ImagePath))
+                                        {
+                                            <img src="@team.ImagePath" alt="@team.Name" class="team-logo-img" />
+                                        }
+                                        else
+                                        {
+                                            <div class="team-logo-placeholder">@team.Name.Substring(0, 1).ToUpper()</div>
+                                        }
+                                        @team.Name
+                                    </span>
+                                    <span class="team-matches">
+                                        @{
+                                            if (team.Last5Match != null)
+                                            {
+                                                foreach (var result in team.Last5Match)
+                                                {
+                                                    if (result != null)
+                                                    {
+                                                        var trimmedResult = result.ToString().Trim();
+                                                        <span class="match-result @trimmedResult.ToLower()">@trimmedResult</span>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    </span>
+                                    <span class="team-points">@team.CurrentScore</span>
+                                    @if (User.Identity?.IsAuthenticated == true)
+                                    {
+                                        <span class="team-favorite">
+                                            <form method="post" action="/League/ToggleFavorite">
+                                                <input type="hidden" name="teamId" value="@team.Id" />
+                                                <button type="submit" class="favorite-button">
+                                                    @{
+                                                        bool isFavorite = false;
+                                                        if (User.Identity?.IsAuthenticated == true)
+                                                        {
+                                                            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+                                                            var context = ViewContext.HttpContext.RequestServices.GetService(typeof(webapplication.Models.DataContext)) as webapplication.Models.DataContext;
+                                                            var user = context?.Users.FirstOrDefault(u => u.Id == userId);
+                                                            if (user != null && user.Favourites != null)
+                                                            {
+                                                                isFavorite = user.Favourites.Contains(team.Id);
+                                                            }
+                                                        }
+                                                    }
+                                                    @if (isFavorite)
+                                                    {
+                                                        <i class="fas fa-star"></i> <!-- Favori eklenmişse dolu yıldız -->
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="far fa-star"></i> <!-- Favori eklenmemişse boş yıldız -->
+                                                    }
+                                                </button>
+                                            </form>
+                                        </span>
+                                    }
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="no-teams">
+                                <p>Henüz takım bulunmamaktadır.</p>
+                            </div>
+                        }
+                    </div>
+                    <div id="no-results" class="no-results" style="display: none;">
+                        <p>Arama sonucu bulunamadı.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div class="panels-container">
+                    <div class="right-panel">
+                        <h2>Favoriler</h2>
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <p>Hoşgeldiniz, @User.Identity.Name!</p>
+                            <!-- Favoriler listesi burada gösterilecek -->
+                            <div class="favorites-list">
+                                @{
+                                    var favoriteTeams = ViewBag.FavoriteTeams as List<int>;
+                                    var favoriteTeamsList = Model?.Where(t => favoriteTeams?.Contains(t.Id) == true).ToList();
+                                    if (favoriteTeamsList != null && favoriteTeamsList.Any())
+                                    {
+                                        <div class="favorite-teams">
+                                            @foreach (var team in favoriteTeamsList)
+                                            {
+                                                <div class="favorite-team-item">
+                                                    <div class="favorite-team-info">
+                                                        @if (!string.IsNullOrEmpty(team.ImagePath))
+                                                        {
+                                                            <img src="@team.ImagePath" alt="@team.Name" class="favorite-team-logo" />
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="favorite-team-logo-placeholder">@team.Name.Substring(0, 1).ToUpper()</div>
+                                                        }
+                                                        <div class="favorite-team-text">
+                                                            <span class="favorite-team-name">@team.Name</span>
+                                                            <span class="favorite-team-points">@team.CurrentScore puan</span>
+                                                        </div>
+                                                    </div>
+                                                    <form method="post" action="/League/ToggleFavorite">
+                                                        <input type="hidden" name="teamId" value="@team.Id" />
+                                                        <button type="submit" class="remove-favorite-button">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <p>Henüz favori takımınız bulunmamaktadır.</p>
+                                        <p>Takımları favorilere eklemek için <i class="far fa-star"></i> simgesine tıklayabilirsiniz.</p>
+                                    }
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p>Favorilerinizi görmek için lütfen giriş yapınız.</p>
+                        }
+                    </div>
+
+                    <!-- Side Menu (Right Side) -->
+                    <div class="side-menu">
+                        <a href="/league" class="side-menu-item">
+                            <div class="square-button">
+                                <div class="icon-container">
+                                    <img src="~/images/tournament.png" alt="Lig İkonu" class="menu-icon" />
+                                </div>
+                                <span>Lig Tablosu</span>
+                            </div>
+                        </a>
+
+                        <!-- Fikstürler butonu 50px margin-top ile aşağıya alındı -->
+                        <a href="/home/fixtures" class="side-menu-item" style="margin-top: 50px;">
+                            <div class="square-button">
+                                <div class="icon-container">
+                                    <!-- Font Awesome ikonu kullanıldı -->
+                                    <i class="far fa-calendar-alt menu-icon" style="font-size: 24px; color: #3498db;"></i>
+                                </div>
+                                <span>Fikstürler</span>
+                            </div>
+                        </a>
+
+                        <!-- Admin Panel butonu side menünün en altında olacak -->
+                        @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
+                        {
+                            <a href="/admin" class="side-menu-item admin-menu-item">
+                                <div class="square-button admin-button">
+                                    <div class="icon-container">
+                                        <i class="fas fa-cog menu-icon"></i>
+                                    </div>
+                                    <span>Admin Panel</span>
+                                </div>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Bağlama -->
+    <script src="~/js/home.js"></script>
+
+    <style>
+        /* Dropdown menü için stil */
+        .user-info {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .username {
+            margin-right: 10px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--background-medium);
+            min-width: 120px;
+            box-shadow: var(--box-shadow);
+            z-index: 1;
+            border-radius: var(--border-radius);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .logout-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: transparent;
+            color: var(--text-light);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+            .logout-button:hover {
+                background-color: var(--secondary-color);
+                color: var(--primary-color);
+            }
+
+        /* Takım logosu için stiller */
+        .team-logo-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .team-logo-placeholder {
+            width: 30px;
+            height: 30px;
+            background-color: var(--accent-color, #0f3460);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        /* Favori takım logosu için stiller */
+        .favorite-team-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .favorite-team-logo-placeholder {
+            width: 24px;
+            height: 24px;
+            background-color: var(--accent-color, #0f3460);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+            font-size: 0.8rem;
+        }
+
+        /* Favori butonları için stiller */
+        .team-favorite {
+            text-align: center;
+        }
+
+        .favorite-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--secondary-color);
+            transition: transform 0.2s;
+        }
+
+            .favorite-button:hover {
+                transform: scale(1.2);
+            }
+
+        .fa-star {
+            color: gold;
+        }
+
+        /* Favoriler listesi için stiller */
+        .favorites-list {
+            margin-top: 15px;
+        }
+
+        .favorite-teams {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .favorite-team-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--background-light);
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            transition: transform 0.2s;
+        }
+
+            .favorite-team-item:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--box-shadow);
+            }
+
+        .favorite-team-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .favorite-team-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .favorite-team-name {
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .favorite-team-points {
+            font-size: 0.9em;
+            color: var(--text-muted);
+        }
+
+        .remove-favorite-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--loss-color);
+            transition: transform 0.2s;
+        }
+
+            .remove-favorite-button:hover {
+                transform: scale(1.2);
+            }
+
+        /* Side menü için stil */
+        .side-menu {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-height: 300px; /* Side menü için minimum yükseklik */
+        }
+
+        /* Admin butonu için stil */
+        .admin-menu-item {
+            margin-top: auto; /* Otomatik margin ile en alta itme */
+        }
+
+        .admin-button {
+            background-color: var(--accent-color);
+        }
+
+            .admin-button .icon-container {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .admin-button i.menu-icon {
+                color: white;
+                font-size: 24px;
+            }
+
+            .admin-button span {
+                color: white;
+            }
+
+        /* Takım adı için stil */
+        .team-name {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</body>
+</html>

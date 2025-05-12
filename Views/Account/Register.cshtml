@@ -1,0 +1,357 @@
+﻿@model webapplication.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- CSS Dosyası -->
+    <link href="~/css/home.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Animasyon tanımları */
+        @@keyframes scaleIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.05);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @@keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Popup için yeni animasyon */
+        @@keyframes popupIn {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        body {
+            background-color: var(--background-dark);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .register-container {
+            width: 450px;
+            background-color: var(--background-medium);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            animation: scaleIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center center;
+            position: relative;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+            animation-delay: 0.7s;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .form-content {
+            visibility: hidden;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+            animation-delay: 0.7s;
+        }
+
+        .register-container.animation-complete .form-content {
+            visibility: visible;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 10px;
+                font-weight: 500;
+                color: var(--text-light);
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: var(--border-radius);
+            background-color: var(--background-light);
+            color: var(--text-light);
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px var(--accent-color);
+                transform: translateY(-2px);
+            }
+
+        .btn-register {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+            .btn-register:hover {
+                background-color: var(--accent-color);
+                transform: translateY(-2px);
+            }
+
+        .validation-summary-errors {
+            color: var(--loss-color);
+            margin-bottom: 20px;
+            display: none;
+        }
+
+            .validation-summary-errors ul {
+                list-style: none;
+                padding-left: 0;
+            }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+            .back-link:hover {
+                color: var(--secondary-color);
+            }
+
+        .login-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+            .login-link:hover {
+                color: var(--secondary-color);
+            }
+
+        /* Popup Stilleri */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--background-medium);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            z-index: 1000;
+            min-width: 300px;
+            text-align: center;
+            animation: popupIn 0.3s ease-out;
+            transform-origin: center center;
+        }
+
+        .popup-content {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .popup-button {
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+            .popup-button:hover {
+                background-color: var(--accent-color);
+                transform: translateY(-2px);
+            }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="logo-container">
+            <img src="~/images/logo.png" class="logo" alt="Logo" />
+        </div>
+
+        <div class="form-content">
+            <form id="registerForm" method="post" action="/Account/Register">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="All" class="validation-summary-errors"></div>
+
+                <div class="form-group">
+                    <label for="Username">Kullanıcı Adı</label>
+                    <input type="text" id="Username" name="Username" class="form-control" placeholder="Kullanıcı adınızı giriniz" />
+                </div>
+
+                <div class="form-group">
+                    <label for="Password">Şifre</label>
+                    <input type="password" id="Password" name="Password" class="form-control" placeholder="Şifrenizi giriniz" />
+                </div>
+
+                <div class="form-group">
+                    <label for="ConfirmPassword">Şifre Tekrarı</label>
+                    <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="Şifrenizi tekrar giriniz" />
+                </div>
+
+                <button type="submit" class="btn-register">Kayıt Ol</button>
+            </form>
+
+            <a href="/Account/Login" class="login-link">Zaten hesabınız var mı? Giriş yapın</a>
+            <a href="/" class="back-link">Ana Sayfaya Dön</a>
+        </div>
+    </div>
+
+    <!-- Popup ve Overlay -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p id="popup-message"></p>
+        </div>
+        <button class="popup-button" onclick="closePopup()">Tamam</button>
+    </div>
+    <div id="overlay" class="overlay"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.querySelector('.register-container').classList.add('animation-complete');
+            }, 700);
+
+            // Form gönderilmeden önce kontrol
+            document.getElementById('registerForm').addEventListener('submit', function(event) {
+                var username = document.getElementById('Username').value;
+                var password = document.getElementById('Password').value;
+                var confirmPassword = document.getElementById('ConfirmPassword').value;
+
+                if (!username || !password || !confirmPassword) {
+                    event.preventDefault();
+                    showPopup('Lütfen boş bırakılan alanları doldurun.');
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    event.preventDefault();
+                    showPopup('Şifreler eşleşmiyor. Lütfen kontrol ediniz.');
+                    return;
+                }
+            });
+
+            // TempData hata mesajını kontrol et
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <text>
+                    showPopup('@Html.Raw(TempData["ErrorMessage"])');
+            </text>
+        }
+
+            // Validation Summary hata mesajlarını kontrol et
+            var validationErrors = document.querySelector('.validation-summary-errors');
+            if (validationErrors && validationErrors.textContent.trim() !== '') {
+                var errorMessages = validationErrors.querySelectorAll('ul li');
+                if (errorMessages.length > 0) {
+                    var errorMessage = errorMessages[0].textContent;
+
+                    // Özel hata mesajları
+                    if (errorMessage.includes("kullanıcı adı zaten kullanılıyor")) {
+                        showPopup('Bu kullanıcı adı zaten kullanılıyor. Lütfen farklı bir kullanıcı adı seçin.');
+                    } else {
+                        showPopup(errorMessage);
+                    }
+                }
+            }
+        });
+
+        function showPopup(message) {
+            // HTML karakter kodlarını temizle
+            message = message.replace(/&#(\d+);/g, function(match, dec) {
+                return String.fromCharCode(dec);
+            });
+
+            document.getElementById('popup-message').textContent = message;
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

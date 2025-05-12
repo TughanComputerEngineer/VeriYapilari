@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- Admin CSS dosyasını dahil et -->
+    <link href="~/css/admin.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-layout">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="~/images/logo.png" alt="Logo" class="logo">
+                <h2>Admin Panel</h2>
+            </div>
+            <div class="sidebar-menu">
+                <a href="/Admin" class="menu-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                    <i class="fas fa-home"></i>
+                    <span>Ana Sayfa</span>
+                </a>
+                <a href="/Admin/Panel" class="menu-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Panel" ? "active" : "")">
+                    <i class="fas fa-users"></i>
+                    <span>Takım Yönetimi</span>
+                </a>
+                <a href="/Admin/Users" class="menu-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Users" ? "active" : "")">
+                    <i class="fas fa-user"></i>
+                    <span>Üye Yönetimi</span>
+                </a>
+                <a href="/Admin/AddMatch" class="menu-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "AddMatch" ? "active" : "")">
+                    <i class="fas fa-futbol"></i>
+                    <span>Maç Ekle</span>
+                </a>
+                <a href="/" class="menu-item">
+                    <i class="fas fa-globe"></i>
+                    <span>Siteye Git</span>
+                </a>
+                <form method="post" action="/Account/Logout" class="logout-form">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="menu-item logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Çıkış Yap</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="topbar">
+                <div class="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="user-info">
+                    <span>Hoş geldiniz, Admin</span>
+                    <img src="~/images/login-1.png" alt="User" class="user-avatar">
+                </div>
+            </div>
+            <div class="content-wrapper">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/admin.js?v=@DateTime.Now.Ticks"></script>
+</body>
+</html>

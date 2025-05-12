@@ -1,0 +1,70 @@
+﻿@model webapplication.Models.User
+@{
+    Layout = "~/Views/Admin/_Layout.cshtml";
+    ViewData["Title"] = "Admin Panel - Kullanıcı Düzenle";
+}
+
+<div class="admin-container">
+    <div class="panel-header">
+        <h1>Kullanıcı Düzenle</h1>
+        <a href="/Admin/Users" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Geri Dön
+        </a>
+    </div>
+
+    <div class="panel-content">
+        <form method="post" action="/Admin/EditUser">
+            <input type="hidden" name="Id" value="@Model.Id" />
+
+            <div class="form-group">
+                <label for="Username">Kullanıcı Adı:</label>
+                <input type="text" id="Username" name="Username" value="@Model.Username" required class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="Password">Şifre (Değiştirmek istemiyorsanız boş bırakın):</label>
+                <input type="password" id="Password" name="Password" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="IsAdmin">Admin Yetkisi:</label>
+                <select id="IsAdmin" name="IsAdmin" class="form-control">
+                    <option value="false" @(Model.IsAdmin ? "" : "selected")>Kullanıcı</option>
+                    <option value="true" @(Model.IsAdmin ? "selected" : "")>Admin</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <a href="/Admin/Users" class="btn btn-secondary">İptal</a>
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 30px;
+    }
+</style>

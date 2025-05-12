@@ -1,0 +1,232 @@
+@model List<webapplication.Models.Team>
+@using System.Security.Claims
+
+@{
+    Layout = "~/Views/League/_Layout.cshtml";
+    ViewData["Title"] = "Lig Tablosu";
+}
+
+<div class="league-container">
+    <div class="league-header">
+        <h1>Lig Tablosu</h1>
+        <div class="league-stats">
+            <div class="stat-item">
+                <span class="stat-value">@Model.Count</span>
+                <span class="stat-label">Takım</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">@(Model.Sum(t => t.CurrentScore))</span>
+                <span class="stat-label">Toplam Puan</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">@(Model.Any() ? Model.Max(t => t.CurrentScore) : 0)</span>
+                <span class="stat-label">En Yüksek Puan</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-filter-container">
+        <div class="search-bar">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="team-search" placeholder="Takım ara..." />
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Tümü</button>
+            <button class="filter-btn" data-filter="top">İlk 5</button>
+            <button class="filter-btn" data-filter="favorites">Favoriler</button>
+        </div>
+    </div>
+
+    <div class="team-table-container">
+        <div class="team-table">
+            <div class="table-header">
+                <span class="column-rank">Sıra</span>
+                <span class="column-team">Takım Adı</span>
+                <span class="column-matches">Son 5 Maç</span>
+                <span class="column-points">Puan</span>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <span class="column-favorite">Favoriler</span>
+                }
+            </div>
+
+            <div class="table-body" id="team-list">
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var team in Model)
+                    {
+                        <div class="team-item" data-team-name="@team.Name.ToLower()" data-team-points="@team.CurrentScore">
+                            <span class="team-rank">@team.Id</span>
+                            <span class="team-name">
+                                @if (!string.IsNullOrEmpty(team.ImagePath))
+                                {
+                                    <img src="@team.ImagePath" alt="@team.Name" class="team-logo-img" />
+                                }
+                                else
+                                {
+                                    <div class="team-logo-placeholder">@team.Name.Substring(0, 1).ToUpper()</div>
+                                }
+                                @team.Name
+                            </span>
+                            <span class="team-matches">
+                                @{
+                                    if (team.Last5Match != null)
+                                    {
+                                        foreach (var result in team.Last5Match)
+                                        {
+                                            if (result != null)
+                                            {
+                                                var trimmedResult = result.ToString().Trim();
+                                                <span class="match-result @trimmedResult.ToLower()">@trimmedResult</span>
+                                            }
+                                        }
+                                    }
+                                }
+                            </span>
+                            <span class="team-points">
+                                <div class="points-circle">@team.CurrentScore</div>
+                            </span>
+
+                            @if (User.Identity?.IsAuthenticated == true)
+                            {
+                                <span class="team-favorite">
+                                    <form method="post" action="/League/ToggleFavorite">
+                                        <input type="hidden" name="teamId" value="@team.Id" />
+                                        <button type="submit" class="favorite-button">
+                                            @{
+                                                bool isFavorite = false;
+                                                var favoriteTeams = ViewBag.FavoriteTeams as List<int>;
+                                                if (favoriteTeams != null)
+                                                {
+                                                    isFavorite = favoriteTeams.Contains(team.Id);
+                                                }
+                                            }
+                                            @if (isFavorite)
+                                            {
+                                                <i class="fas fa-star"></i> <!-- Favori eklenmişse dolu yıldız -->
+                                            }
+                                            else
+                                            {
+                                                <i class="far fa-star"></i> <!-- Favori eklenmemişse boş yıldız -->
+                                            }
+                                        </button>
+                                    </form>
+                                </span>
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="no-teams">
+                        <div class="empty-state">
+                            <i class="fas fa-trophy empty-icon"></i>
+                            <p>Henüz takım bulunmamaktadır.</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div id="no-results" class="no-results" style="display: none;">
+        <div class="empty-state">
+            <i class="fas fa-search empty-icon"></i>
+            <p>Arama sonucu bulunamadı.</p>
+        </div>
+    </div>
+
+    <div class="league-footer">
+        <div class="legend">
+            <div class="legend-item">
+                <span class="match-result w">W</span>
+                <span>Galibiyet</span>
+            </div>
+            <div class="legend-item">
+                <span class="match-result d">D</span>
+                <span>Beraberlik</span>
+            </div>
+            <div class="legend-item">
+                <span class="match-result l">L</span>
+                <span>Mağlubiyet</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Takım Detay Modal -->
+<div id="team-detail-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="team-detail-header">
+            <div class="team-detail-logo" id="modal-team-logo"></div>
+            <h2 id="modal-team-name"></h2>
+        </div>
+        <div class="team-detail-stats">
+            <div class="stat-box">
+                <span class="stat-number" id="modal-team-rank"></span>
+                <span class="stat-label">Sıra</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number" id="modal-team-points"></span>
+                <span class="stat-label">Puan</span>
+            </div>
+        </div>
+        <div class="team-detail-matches">
+            <h3>Son 5 Maç</h3>
+            <div id="modal-team-matches" class="match-history"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Takım detaylarını göster
+        const teamItems = document.querySelectorAll('.team-item');
+        const modal = document.getElementById('team-detail-modal');
+        const closeModal = document.querySelector('.close-modal');
+
+        teamItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const teamName = this.querySelector('.team-name').textContent.trim();
+                const teamRank = this.querySelector('.team-rank').textContent;
+                const teamPoints = this.querySelector('.points-circle').textContent;
+                const teamLogo = this.querySelector('.team-logo-img') || this.querySelector('.team-logo-placeholder');
+                const teamMatches = this.querySelector('.team-matches').innerHTML;
+
+                document.getElementById('modal-team-name').textContent = teamName;
+                document.getElementById('modal-team-rank').textContent = teamRank;
+                document.getElementById('modal-team-points').textContent = teamPoints;
+                document.getElementById('modal-team-matches').innerHTML = teamMatches;
+
+                const modalLogo = document.getElementById('modal-team-logo');
+
+                if (teamLogo.tagName === 'IMG') {
+                    // Resim varsa
+                    modalLogo.innerHTML = '';
+                    const img = document.createElement('img');
+                    img.src = teamLogo.src;
+                    img.alt = teamName;
+                    img.className = 'modal-team-logo-img';
+                    modalLogo.appendChild(img);
+                } else {
+                    // Placeholder varsa
+                    modalLogo.innerHTML = teamName.substring(0, 1).toUpperCase();
+                    modalLogo.className = 'team-detail-logo';
+                }
+
+                modal.style.display = 'block';
+            });
+        });
+
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+</script>
