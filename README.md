@@ -96,5 +96,4 @@ Sistemin temel hedefleri:
 
 ## 📌 Sonuç
 
-Bu projede kullanılan veri yapıları, sistemin hem *performansını artırmak* hem de *kullanıcı deneyimini geliştirmek* amacıyla özel olarak seçilmiştir.  
-Karmaşık işlemler bile hızlıca işlenebilir ve kullanıcıya anında doğru bilgi sunulur.
+Bu proje, verimli veri yapıları kullanılarak tasarlanmış, dinamik ve hızlı bir sıralama sistemi sunar. Kullanıcılar ve adminler için kullanıcı dostu bir deneyim sağlanırken, sistemin performansı her veri işlemi için optimize edilmiştir. Heap, Linked List, Binary Search Tree ve Queue gibi veri yapıları, sistemin hem esnek hem de performanslı olmasını sağlar.
