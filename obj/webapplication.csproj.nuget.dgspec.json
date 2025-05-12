@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/polatceylan/Desktop/Tourney/webapplication/webapplication.csproj": {}
+    "C:\\Users\\CC-Student\\Desktop\\Development\\BU ORIGINAL\\VeriYapilari-base\\VeriYapilari\\webapplication.csproj": {}
   },
   "projects": {
-    "/Users/polatceylan/Desktop/Tourney/webapplication/webapplication.csproj": {
+    "C:\\Users\\CC-Student\\Desktop\\Development\\BU ORIGINAL\\VeriYapilari-base\\VeriYapilari\\webapplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/polatceylan/Desktop/Tourney/webapplication/webapplication.csproj",
+        "projectUniqueName": "C:\\Users\\CC-Student\\Desktop\\Development\\BU ORIGINAL\\VeriYapilari-base\\VeriYapilari\\webapplication.csproj",
         "projectName": "webapplication",
-        "projectPath": "/Users/polatceylan/Desktop/Tourney/webapplication/webapplication.csproj",
-        "packagesPath": "/Users/polatceylan/.nuget/packages/",
-        "outputPath": "/Users/polatceylan/Desktop/Tourney/webapplication/obj/",
+        "projectPath": "C:\\Users\\CC-Student\\Desktop\\Development\\BU ORIGINAL\\VeriYapilari-base\\VeriYapilari\\webapplication.csproj",
+        "packagesPath": "C:\\Users\\CC-Student\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\CC-Student\\Desktop\\Development\\BU ORIGINAL\\VeriYapilari-base\\VeriYapilari\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/polatceylan/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\CC-Student\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -76,6 +77,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.15, 8.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.15, 8.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.15, 8.0.15]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.15, 8.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -84,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.408/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

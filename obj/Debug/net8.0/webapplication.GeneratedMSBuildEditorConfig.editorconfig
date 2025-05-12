@@ -17,67 +17,69 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = webapplication
 build_property.RootNamespace = webapplication
-build_property.ProjectDir = /Users/polatceylan/Desktop/Tourney/webapplication/
+build_property.ProjectDir = C:\Users\CC-Student\Desktop\Development\BU ORIGINAL\VeriYapilari-base\VeriYapilari\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/polatceylan/Desktop/Tourney/webapplication
+build_property.MSBuildProjectDirectory = C:\Users\CC-Student\Desktop\Development\BU ORIGINAL\VeriYapilari-base\VeriYapilari
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Pages/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Views/Admin/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vSW5kZXguY3NodG1s
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Views/Admin/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vX0xheW91dC5jc2h0bWw=
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Views/Admin/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Views/League/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhZ3VlL0luZGV4LmNzaHRtbA==
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Views/League/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZ3VlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Views/League/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhZ3VlL19MYXlvdXQuY3NodG1s
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Views/League/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZ3VlXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Views/Login/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTG9naW4vSW5kZXguY3NodG1s
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Views/Login/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTG9naW4vX0xheW91dC5jc2h0bWw=
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Views/Login/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/polatceylan/Desktop/Tourney/webapplication/Pages/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-ujd1s3btr5
+[C:/Users/CC-Student/Desktop/Development/BU ORIGINAL/VeriYapilari-base/VeriYapilari/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-vgjlx4eu0q

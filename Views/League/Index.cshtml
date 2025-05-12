@@ -1,5 +1,58 @@
 @{
-    Layout = "~/Views/League/_Layout.cshtml";
+    Layout = "~/Views/League/_Layout.cshtml";  // Layout dosyasını belirtmek
+    ViewData["Title"] = "Turnuva";  // Sayfa başlığı
 }
 
-<div id="bracket" style="font-family: monospace; white-space: pre;"></div>
+<!-- Ana içerik -->
+<div class="content">
+    <div id="match-table" style="margin-top: 40px;"></div>
+</div>
+
+<script>
+    function shuffleArray(array) {
+        // Takımları rastgele karıştır
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];  // Karıştırma işlemi
+        }
+        return array;
+    }
+
+    function renderMatchTable(teams) {
+        const tableContainer = document.getElementById("match-table");
+        if (!tableContainer) return;
+
+        tableContainer.innerHTML = "";
+
+        const table = document.createElement("table");
+        table.classList.add("match-table");
+
+        const headerRow = document.createElement("tr");
+        headerRow.innerHTML = "<th>Takım 1</th><th>vs</th><th>Takım 2</th>";
+        table.appendChild(headerRow);
+
+        for (let i = 0; i < teams.length; i += 2) {
+            const row = document.createElement("tr");
+            const team1 = teams[i];
+            const team2 = teams[i + 1] || { name: "BYE", id: "-" };
+
+            row.innerHTML = `
+                <td>${team1.name} <span style="color: gray;">(#${team1.id})</span></td>
+                <td>vs</td>
+                <td>${team2.name} <span style="color: gray;">(#${team2.id})</span></td>
+            `;
+            table.appendChild(row);
+        }
+
+        tableContainer.appendChild(table);
+    }
+
+    // API'den takımları al
+    fetch('/api/tournament/teams')
+        .then(response => response.json())
+        .then(teams => {
+            const shuffled = shuffleArray(teams);
+            renderMatchTable(shuffled);
+        })
+        .catch(error => console.error('Hata:', error));
+</script>

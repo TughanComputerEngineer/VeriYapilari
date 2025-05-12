@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turnuva Paneli</title>
-    <!-- Admin CSS dosyasını dahil et -->
-    <link href="~/css/league.css" rel="stylesheet" />
+    <title>@ViewData["Title"]</title>  <!-- Dinamik Başlık -->
+    <link rel="stylesheet" href="~/css/league.css" />  <!-- Stil Dosyasını Bağla -->
+    <link rel="stylesheet" href="~/css/common.css" />  <!-- Ortak Stil Dosyasını Bağla (Opsiyonel) -->
 </head>
-<body>
-    <header>
-        <h1>Turnuva Paneli</h1>
-    </header>
-    
-    <div class="content">
-        @RenderBody() <!-- İçerik burada görüntülenecek -->
+<body style="background-color: #121212; color: #ffffff; font-family: 'Inter', sans-serif;">
+    <div class="container">
+        <header class="header">
+            <div class="logo-title">
+                <img src="tournament-1.png" alt="tournament-1" class="tournament-1">
+                <span class="title">Eşleşmeler</span>
+            </div>
+            <div class="login-links">
+                <!-- Login veya çıkış butonu gibi öğeler -->
+            </div>
+        </header>
+
+        <div class="main-content">
+            @RenderBody()  <!-- Sayfa içeriği -->
+        </div>
+
+        <footer>
+            <p>&copy; ____</p>
+        </footer>
     </div>
-    <script src="~/js/league.js"></script>
+
+    @RenderSection("Scripts", required: false)  <!-- scriptler -->
 </body>
 </html>

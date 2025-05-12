@@ -13,10 +13,10 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("webapplication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a39073c92233d7bdcae33564606e4becb894f6e5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72828e62b232133654ac8b431f68de36b671e800")]
 [assembly: System.Reflection.AssemblyProductAttribute("webapplication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("webapplication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
-// MSBuild WriteCodeFragment sınıfı tarafından oluşturuldu.
+// Von der MSBuild WriteCodeFragment-Klasse generiert.
 
