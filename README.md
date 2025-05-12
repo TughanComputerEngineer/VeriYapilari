@@ -1,3 +1,4 @@
+Projenin github linki: https://github.com/TughanComputerEngineer/VeriYapilari
 
 # 🏆 Spor Turnuvası Puan Durumu ve Sıralama Sistemi
 
