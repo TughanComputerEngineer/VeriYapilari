@@ -16,6 +16,16 @@
     ]
   },
   {
+    "ContainingType": "MatchController",
+    "Method": "GetMatches",
+    "RelativePath": "api/Match",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "webapplication.Controllers.TournamentController",
     "Method": "GetTeams",
     "RelativePath": "api/Tournament/teams",

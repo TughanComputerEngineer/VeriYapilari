@@ -159,35 +159,41 @@
                             <!-- Favoriler listesi burada gösterilecek -->
                             <div class="favorites-list">
                                 @{
-                                    var favoriteTeams = ViewBag.FavoriteTeams as List<int>;
-                                    var favoriteTeamsList = Model?.Where(t => favoriteTeams?.Contains(t.Id) == true).ToList();
-                                    if (favoriteTeamsList != null && favoriteTeamsList.Any())
+                                    var favoriteTeamsLinkedList = ViewBag.FavoriteTeamsLinkedList as webapplication.Models.TeamLinkedList;
+
+                                    if (favoriteTeamsLinkedList != null && favoriteTeamsLinkedList.Count > 0)
                                     {
                                         <div class="favorite-teams">
-                                            @foreach (var team in favoriteTeamsList)
-                                            {
-                                                <div class="favorite-team-item">
-                                                    <div class="favorite-team-info">
-                                                        @if (!string.IsNullOrEmpty(team.ImagePath))
-                                                        {
-                                                            <img src="@team.ImagePath" alt="@team.Name" class="favorite-team-logo" />
-                                                        }
-                                                        else
-                                                        {
-                                                            <div class="favorite-team-logo-placeholder">@team.Name.Substring(0, 1).ToUpper()</div>
-                                                        }
-                                                        <div class="favorite-team-text">
-                                                            <span class="favorite-team-name">@team.Name</span>
-                                                            <span class="favorite-team-points">@team.CurrentScore puan</span>
+                                            @{
+                                                var currentNode = favoriteTeamsLinkedList.Head;
+                                                while (currentNode != null)
+                                                {
+                                                    var teamData = currentNode.TeamData;
+                                                    <div class="favorite-team-item">
+                                                        <div class="favorite-team-info">
+                                                            @if (!string.IsNullOrEmpty(teamData.ImagePath))
+                                                            {
+                                                                <img src="@teamData.ImagePath" alt="@teamData.Name" class="favorite-team-logo" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="favorite-team-logo-placeholder">@teamData.Name.Substring(0, 1).ToUpper()</div>
+                                                            }
+                                                            <div class="favorite-team-text">
+                                                                <span class="favorite-team-name">@teamData.Name</span>
+                                                                <span class="favorite-team-points">@teamData.CurrentScore puan</span>
+                                                            </div>
                                                         </div>
+                                                        <form method="post" action="/League/ToggleFavorite">
+                                                            <input type="hidden" name="teamId" value="@teamData.Id" />
+                                                            <button type="submit" class="remove-favorite-button">
+                                                                <i class="fas fa-trash-alt"></i>
+                                                            </button>
+                                                        </form>
                                                     </div>
-                                                    <form method="post" action="/League/ToggleFavorite">
-                                                        <input type="hidden" name="teamId" value="@team.Id" />
-                                                        <button type="submit" class="remove-favorite-button">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </button>
-                                                    </form>
-                                                </div>
+
+                                                    currentNode = currentNode.Next;
+                                                }
                                             }
                                         </div>
                                     }

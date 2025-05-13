@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Security.Claims;
+using System.Collections.Generic;
 using webapplication.Models;
 
 namespace webapplication.Controllers
@@ -31,11 +32,28 @@ namespace webapplication.Controllers
                 var user = _context.Users.FirstOrDefault(u => u.Id == userId);
 
                 // Favori takımları ViewBag'e at
-                ViewBag.FavoriteTeams = user?.Favourites ?? new List<int>();
+                var favoriteTeamIds = user?.Favourites ?? new List<int>();
+                ViewBag.FavoriteTeams = favoriteTeamIds;
+
+                // Favori takımları linked list'e ekle
+                var favoriteTeamsList = new TeamLinkedList();
+
+                foreach (var teamId in favoriteTeamIds)
+                {
+                    var team = teams.FirstOrDefault(t => t.Id == teamId);
+                    if (team != null)
+                    {
+                        favoriteTeamsList.Add(team);
+                    }
+                }
+
+                // Linked list'i ViewBag'e ekle
+                ViewBag.FavoriteTeamsLinkedList = favoriteTeamsList;
             }
             else
             {
                 ViewBag.FavoriteTeams = new List<int>();
+                ViewBag.FavoriteTeamsLinkedList = new TeamLinkedList();
             }
 
             return View(teams);
@@ -77,7 +95,7 @@ namespace webapplication.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
-            
+
             int userId = int.Parse(userIdClaim);
 
             // Kullanıcıyı veritabanından bul
@@ -95,6 +113,11 @@ namespace webapplication.Controllers
             }
 
             // Favorilere ekle veya çkar
+            if (user.Favourites == null)
+            {
+                user.Favourites = new List<int>();
+            }
+
             if (user.Favourites.Contains(teamId))
             {
                 user.Favourites.Remove(teamId);
@@ -130,7 +153,7 @@ namespace webapplication.Controllers
             {
                 return new List<int>();
             }
-            
+
             int userId = int.Parse(userIdClaim);
             var user = _context.Users.FirstOrDefault(u => u.Id == userId);
 

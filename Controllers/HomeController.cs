@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Security.Claims;
+using System.Collections.Generic;
 using webapplication.Models;
 
 namespace webapplication.Controllers
@@ -19,7 +20,7 @@ namespace webapplication.Controllers
         {
             // Takımları al ve puana göre sırala
             var teams = _context.Teams.OrderByDescending(t => t.CurrentScore).ToList();
-            
+
             // Kullanıcının favori takımını bul
             if (User.Identity?.IsAuthenticated ?? false)
             {
@@ -27,11 +28,28 @@ namespace webapplication.Controllers
                 var user = _context.Users.FirstOrDefault(u => u.Id == userId);
 
                 // Favori takımları ViewBag'e at
-                ViewBag.FavoriteTeams = user?.Favourites ?? new List<int>();
+                var favoriteTeamIds = user?.Favourites ?? new List<int>();
+                ViewBag.FavoriteTeams = favoriteTeamIds;
+
+                // Favori takımları linked list'e ekle
+                var favoriteTeamsList = new TeamLinkedList();
+
+                foreach (var teamId in favoriteTeamIds)
+                {
+                    var team = teams.FirstOrDefault(t => t.Id == teamId);
+                    if (team != null)
+                    {
+                        favoriteTeamsList.Add(team);
+                    }
+                }
+
+                // Linked list'i ViewBag'e ekle
+                ViewBag.FavoriteTeamsLinkedList = favoriteTeamsList;
             }
             else
             {
                 ViewBag.FavoriteTeams = new List<int>();
+                ViewBag.FavoriteTeamsLinkedList = new TeamLinkedList();
             }
 
             return View(teams);

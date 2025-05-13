@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WLYBLbR/lz0=",
+  "dgSpecHash": "IwC1QAZHk1c=",
   "success": true,
-  "projectFilePath": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.4 maç sonuçları ve ouanları entegre edildi\\VeriYapilari-base\\webapplication.csproj",
+  "projectFilePath": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.5heapvelinkedlistyapıldı\\VeriYapilari2\\webapplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CHIKO\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\CHIKO\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
