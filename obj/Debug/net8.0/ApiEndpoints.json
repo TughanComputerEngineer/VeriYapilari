@@ -26,6 +26,36 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MatchController",
+    "Method": "GetNextMatch",
+    "RelativePath": "api/Match/next",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MatchController",
+    "Method": "ProcessNextMatch",
+    "RelativePath": "api/Match/process-next",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MatchController",
+    "Method": "GetMatchQueue",
+    "RelativePath": "api/Match/queue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "webapplication.Controllers.TournamentController",
     "Method": "GetTeams",
     "RelativePath": "api/Tournament/teams",

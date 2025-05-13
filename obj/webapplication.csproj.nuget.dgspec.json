@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.5heapvelinkedlistyapıldı\\VeriYapilari2\\webapplication.csproj": {}
+    "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.6queuedüzeltildi\\VeriYapilari3\\webapplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.5heapvelinkedlistyapıldı\\VeriYapilari2\\webapplication.csproj": {
+    "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.6queuedüzeltildi\\VeriYapilari3\\webapplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.5heapvelinkedlistyapıldı\\VeriYapilari2\\webapplication.csproj",
+        "projectUniqueName": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.6queuedüzeltildi\\VeriYapilari3\\webapplication.csproj",
         "projectName": "webapplication",
-        "projectPath": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.5heapvelinkedlistyapıldı\\VeriYapilari2\\webapplication.csproj",
+        "projectPath": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.6queuedüzeltildi\\VeriYapilari3\\webapplication.csproj",
         "packagesPath": "C:\\Users\\CHIKO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.5heapvelinkedlistyapıldı\\VeriYapilari2\\obj\\",
+        "outputPath": "C:\\Users\\CHIKO\\Desktop\\sonsürümv3.6queuedüzeltildi\\VeriYapilari3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

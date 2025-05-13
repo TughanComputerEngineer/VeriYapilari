@@ -1,121 +1,121 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\",
+  "WorkspaceRootPath": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\controllers\\leaguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\leaguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\models\\linkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\linkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\models\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\wwwroot\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:wwwroot\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\controllers\\matchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\controllers\\matchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\matchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\models\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\models\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\views\\admin\\panel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\admin\\panel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\wwwroot\\js\\admin.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\wwwroot\\js\\admin.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:wwwroot\\js\\admin.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\wwwroot\\css\\league.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\controllers\\leaguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\leaguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\models\\linkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\linkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\models\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\wwwroot\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:wwwroot\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\models\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\models\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\views\\admin\\panel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\admin\\panel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\wwwroot\\css\\league.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:wwwroot\\css\\league.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\views\\league\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\views\\league\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\league\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\views\\league\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\views\\league\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\league\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\wwwroot\\js\\league.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\wwwroot\\js\\league.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:wwwroot\\js\\league.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\views\\admin\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\views\\admin\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\admin\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\wwwroot\\css\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\wwwroot\\css\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:wwwroot\\css\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\wwwroot\\css\\admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\wwwroot\\css\\admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:wwwroot\\css\\admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\views\\admin\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\views\\admin\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\admin\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari2\\models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|c:\\users\\eternal\\source\\repos\\veriyapilari3\\models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F847D44-04B1-75A3-0A9B-B9D80E443F1A}|webapplication.csproj|solutionrelative:models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -126,7 +126,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -134,49 +134,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LinkedList.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\LinkedList.cs",
-              "RelativeDocumentMoniker": "Models\\LinkedList.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\LinkedList.cs",
-              "RelativeToolTip": "Models\\LinkedList.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAA6wHcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T07:38:55.64Z",
-              "EditorCaption": ""
+              "DocumentIndex": 8,
+              "Title": "home.js",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\js\\home.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\home.js",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\js\\home.js",
+              "RelativeToolTip": "wwwroot\\js\\home.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-08T23:16:07.32Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Team.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\Team.cs",
-              "RelativeDocumentMoniker": "Models\\Team.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\Team.cs",
-              "RelativeToolTip": "Models\\Team.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T23:45:19.929Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "home.js",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\js\\home.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\home.js",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\js\\home.js",
-              "RelativeToolTip": "wwwroot\\js\\home.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-05-08T23:16:07.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "DataContext.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\DataContext.cs",
               "RelativeDocumentMoniker": "Models\\DataContext.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\DataContext.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\DataContext.cs",
               "RelativeToolTip": "Models\\DataContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -184,25 +158,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "LeagueController.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Controllers\\LeagueController.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Controllers\\LeagueController.cs",
               "RelativeDocumentMoniker": "Controllers\\LeagueController.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Controllers\\LeagueController.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Controllers\\LeagueController.cs",
               "RelativeToolTip": "Controllers\\LeagueController.cs",
               "ViewState": "AgIAAIoAAAAAAAAAAAAqwKgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T22:57:44.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-08T22:57:44.913Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Home\\Index.cshtml*",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml*",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
               "ViewState": "AgIAALoBAAAAAAAAAAAqwMgBAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-08T23:15:34.138Z",
@@ -210,50 +183,97 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
               "ViewState": "AgIAADwAAAAAAAAAAAAqwFoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T23:15:43.232Z",
+              "WhenOpened": "2025-05-08T23:15:43.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T01:07:36.047Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Match.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\Match.cs",
+              "RelativeDocumentMoniker": "Models\\Match.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\Match.cs",
+              "RelativeToolTip": "Models\\Match.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T15:32:52.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MatchController.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Controllers\\MatchController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MatchController.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Controllers\\MatchController.cs",
+              "RelativeToolTip": "Controllers\\MatchController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAgwFUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T15:32:18.011Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "admin.js",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\js\\admin.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\admin.js",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\js\\admin.js",
+              "RelativeToolTip": "wwwroot\\js\\admin.js",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAtwGsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-12T01:05:44.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Team.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\Team.cs",
+              "RelativeDocumentMoniker": "Models\\Team.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\Team.cs",
+              "RelativeToolTip": "Models\\Team.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-08T23:45:19.929Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\LoginViewModel.cs",
-              "RelativeToolTip": "Models\\LoginViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Title": "LinkedList.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\LinkedList.cs",
+              "RelativeDocumentMoniker": "Models\\LinkedList.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\LinkedList.cs",
+              "RelativeToolTip": "Models\\LinkedList.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAA6wHcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T01:07:36.047Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Match.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\Match.cs",
-              "RelativeDocumentMoniker": "Models\\Match.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\Match.cs",
-              "RelativeToolTip": "Models\\Match.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T15:32:52.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T07:38:55.64Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "league.css",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\css\\league.css",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\css\\league.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\league.css",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\css\\league.css",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\css\\league.css",
               "RelativeToolTip": "wwwroot\\css\\league.css",
               "ViewState": "AgIAAO4DAAAAAAAAAAAUwBAEAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
@@ -263,9 +283,9 @@
               "$type": "Document",
               "DocumentIndex": 16,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\League\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\League\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\League\\Index.cshtml",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\League\\Index.cshtml",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\League\\Index.cshtml",
               "RelativeToolTip": "Views\\League\\Index.cshtml",
               "ViewState": "AgIAANIAAAAAAAAAAAAowPMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -273,23 +293,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "admin.js",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\js\\admin.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\admin.js",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\js\\admin.js",
-              "RelativeToolTip": "wwwroot\\js\\admin.js",
-              "ViewState": "AgIAAO0AAAAAAAAAAAAowA4BAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-05-12T01:05:44.02Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 24,
               "Title": "EditUser.cshtml",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Admin\\EditUser.cshtml",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Admin\\EditUser.cshtml",
               "RelativeDocumentMoniker": "Views\\Admin\\EditUser.cshtml",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Admin\\EditUser.cshtml",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Admin\\EditUser.cshtml",
               "RelativeToolTip": "Views\\Admin\\EditUser.cshtml",
               "ViewState": "AgIAACUAAAAAAAAAAAAkwEYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -297,11 +305,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Panel.cshtml",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Admin\\Panel.cshtml",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Admin\\Panel.cshtml",
               "RelativeDocumentMoniker": "Views\\Admin\\Panel.cshtml",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Admin\\Panel.cshtml",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Admin\\Panel.cshtml",
               "RelativeToolTip": "Views\\Admin\\Panel.cshtml",
               "ViewState": "AgIAABwCAAAAAAAAAAAswEECAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -309,11 +317,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Controllers\\AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Controllers\\AdminController.cs",
               "RelativeToolTip": "Controllers\\AdminController.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAACUCAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -321,24 +329,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MatchController.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Controllers\\MatchController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MatchController.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Controllers\\MatchController.cs",
-              "RelativeToolTip": "Controllers\\MatchController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T15:32:18.011Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Controllers\\AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Controllers\\AccountController.cs",
               "ViewState": "AgIAAIAAAAAAAAAAAAAAAI0AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -348,9 +343,9 @@
               "$type": "Document",
               "DocumentIndex": 21,
               "Title": "home.css",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\css\\home.css",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\css\\home.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\home.css",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\css\\home.css",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\css\\home.css",
               "RelativeToolTip": "wwwroot\\css\\home.css",
               "ViewState": "AgIAAPUBAAAAAAAAAAAUwBcCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
@@ -358,11 +353,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Program.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAADwAAAAAAAAAAAAvwFgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -372,9 +367,9 @@
               "$type": "Document",
               "DocumentIndex": 18,
               "Title": "league.js",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\js\\league.js",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\js\\league.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\league.js",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\js\\league.js",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\js\\league.js",
               "RelativeToolTip": "wwwroot\\js\\league.js",
               "ViewState": "AgIAALcBAAAAAAAAAAAswNwBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
@@ -384,9 +379,9 @@
               "$type": "Document",
               "DocumentIndex": 22,
               "Title": "Users.cshtml",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Admin\\Users.cshtml",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Admin\\Users.cshtml",
               "RelativeDocumentMoniker": "Views\\Admin\\Users.cshtml",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Admin\\Users.cshtml",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Admin\\Users.cshtml",
               "RelativeToolTip": "Views\\Admin\\Users.cshtml",
               "ViewState": "AgIAAE0AAAAAAAAAAAAowG4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -396,9 +391,9 @@
               "$type": "Document",
               "DocumentIndex": 17,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\League\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\League\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\League\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\League\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\League\\_Layout.cshtml",
               "RelativeToolTip": "Views\\League\\_Layout.cshtml",
               "ViewState": "AgIAADkAAAAAAAAAAAAowFoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -408,9 +403,9 @@
               "$type": "Document",
               "DocumentIndex": 20,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Admin\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Admin\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Admin\\Index.cshtml",
               "RelativeToolTip": "Views\\Admin\\Index.cshtml",
               "ViewState": "AgIAAHoAAAAAAAAAAAAkwIQAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -420,9 +415,9 @@
               "$type": "Document",
               "DocumentIndex": 19,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Admin\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Admin\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Admin\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Admin\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Admin\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Admin\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -432,9 +427,9 @@
               "$type": "Document",
               "DocumentIndex": 23,
               "Title": "admin.css",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\css\\admin.css",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\css\\admin.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\admin.css",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\wwwroot\\css\\admin.css",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\wwwroot\\css\\admin.css",
               "RelativeToolTip": "wwwroot\\css\\admin.css",
               "ViewState": "AgIAALEBAAAAAAAAAAAUwNEBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
@@ -444,9 +439,9 @@
               "$type": "Document",
               "DocumentIndex": 26,
               "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Account\\Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Account\\Register.cshtml",
               "RelativeToolTip": "Views\\Account\\Register.cshtml",
               "ViewState": "AgIAAEoBAAAAAAAAAAAAAFYBAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -456,9 +451,9 @@
               "$type": "Document",
               "DocumentIndex": 25,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\User.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\User.cs",
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -468,9 +463,9 @@
               "$type": "Document",
               "DocumentIndex": 27,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Account\\Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "Views\\Account\\Login.cshtml",
               "ViewState": "AgIAAB4BAAAAAAAAAAAIwEUBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -480,9 +475,9 @@
               "$type": "Document",
               "DocumentIndex": 28,
               "Title": "RegisterViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\RegisterViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\RegisterViewModel.cs",
               "RelativeDocumentMoniker": "Models\\RegisterViewModel.cs",
-              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari2\\Models\\RegisterViewModel.cs",
+              "ToolTip": "C:\\Users\\EterNaL\\source\\repos\\VeriYapilari3\\Models\\RegisterViewModel.cs",
               "RelativeToolTip": "Models\\RegisterViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
