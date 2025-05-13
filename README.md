@@ -88,7 +88,7 @@ Sistemin temel hedefleri:
 
 | Veri Yapısı      | Kullanım Yeri                              | Ekleme    | Silme     | Arama     | Listeleme | Açıklama |
 |------------------|---------------------------------------------|-----------|-----------|-----------|-----------|----------|
-| Linked List       | Takım listesi, favoriler                  | O(1)      | O(n)      | O(n)      | O(n)      | Sıralı yazdırma için kullanılır |
+| Linked List       | Takım listesi, favoriler                  | O(1)      | O(1)      | O(n)      | O(n)      | Sıralı yazdırma için kullanılır |
 | Binary Search Tree| Takım arama işlemleri                     | O(log n)  | O(log n)  | O(log n)  | O(n)      | Ana menüdeki takımlara hızlı erişim |
 | Queue             | Maç fikstür sırası                        | O(1)      | O(1)      | -         | O(n)      | Maçlar sırayla oynanır |
 | Max-Heap          | Puan sıralaması ve lider takım belirleme  | O(log n)  | O(log n)  | -         | -         | En yüksek puanlı takım anında bulunur |
